@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <title>Mahadev Stickers - भक्ति भरा सामान</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .product {
+            border: 2px solid #ff6b6b;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px;
+            text-align: center;
+        }
+        .buy-btn {
+            background: #e67e22;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🛍️ महादेव स्टिकर्स</h1>
+        <p>भक्ति भरा सामान - घर बैठे मंगवाएं</p>
+        
+        <div class="products">
+            <!-- Product 1 -->
+            <div class="product">
+                <img src="assets/sticker1.jpg" alt="Mahadev Sticker" width="150">
+                <h3>हर हर महादेव स्टिकर</h3>
+                <p>₹49 (Free Delivery)</p>
+                <button class="buy-btn" onclick="buyProduct(1)">खरीदें</button>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="product">
+                <img src="assets/sticker2.jpg" alt="Trishul Sticker" width="150">
+                <h3>त्रिशूल स्टिकर</h3>
+                <p>₹39 (Free Delivery)</p>
+                <button class="buy-btn" onclick="buyProduct(2)">खरीदें</button>
+            </div>
+            
+            <!-- Add more products similarly -->
+        </div>
+        
+        <div class="checkout">
+            <h3>🚀 Delivery 3 दिन में!</h3>
+            <p>UPI/PhonePe से भुगतान करें: <strong>shop@mahadevblessings</strong></p>
+        </div>
+    </div>
+    
+    <script>
+        function buyProduct(id) {
+            const productName = document.querySelector(`.product:nth-child(${id}) h3`).innerText;
+            alert(`धन्यवाद! आपने ${productName} खरीदा। भुगतान UPI ID: shop@mahadevblessings`);
+        }
+    </script>
+</body>
+</html>
