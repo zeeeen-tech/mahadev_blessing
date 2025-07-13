@@ -17,6 +17,18 @@ document.addEventListener('DOMContentLoaded', () => {
             gif: "assets/blessing1.gif"
         }
         // You can add more blessings here following the same structure, e.g., blessing2.gif for the next one
+        // {
+        //     text: `ओम नमः शिवाय! [NAME], शिव जी का आशीर्वाद आपके हर कदम पर साथ रहे। आपकी सभी इच्छाएं पूरी हों, [NAME] और आपका जीवन प्रकाश से भर जाए, [NAME]। जय भोलेनाथ!
+        //     \n\n
+        //     Om Namah Shivaya! [NAME], may Lord Shiva's blessings be with your every step. May all your wishes come true, [NAME] and may your life be filled with light, [NAME]. Jai Bholenath!`,
+        //     gif: "assets/blessing2.gif"
+        // },
+        // {
+        //     text: `जय महाकाल! [NAME], आप पर महाकाल की कृपा से हर संकट टल जाए। आपका स्वास्थ्य उत्तम रहे, [NAME], और आपको हर क्षेत्र में सफलता मिले, [NAME]। बम बम भोले!
+        //     \n\n
+        //     Jai Mahakal! [NAME], by the grace of Mahakal, may every crisis be averted from you. May your health be excellent, [NAME], and may you achieve success in every field, [NAME]. Bam Bam Bhole!`,
+        //     gif: "assets/blessing3.gif"
+        // }
     ];
 
     let currentBlessingIndex = 0; // Or use a random index for each blessing generated
@@ -33,8 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function displayBlessing(nameToBless) {
         // Select a blessing (you can implement rotation or randomness here)
         const selectedBlessing = bigBlessings[currentBlessingIndex % bigBlessings.length];
-        // For simple single blessing, currentBlessingIndex will just be 0.
-        // If you add more, uncomment the next line to rotate:
+        // If you add more blessings to the array and want to rotate them:
         // currentBlessingIndex = (currentBlessingIndex + 1) % bigBlessings.length;
 
         // Replace [NAME] with the user's name three times
@@ -46,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Generate and display shareable link
         const currentUrl = new URL(window.location.origin + window.location.pathname);
-        currentUrl.searchParams.set('name', nameToBless); // Add name as query parameter
+        currentUrl.searchParams.set('name', encodeURIComponent(nameToBless)); // Add name as query parameter, encode for special characters
         shareLinkInput.value = currentUrl.toString();
         shareLinkContainer.style.display = 'block';
     }
@@ -59,10 +70,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const nameFromUrl = urlParams.get('name');
 
     if (nameFromUrl) {
-        userNameInput.value = nameFromUrl; // Populate input field with URL name
-        displayBlessing(nameFromUrl);
-        updateHeaderUserName(nameFromUrl);
-        localStorage.setItem('blessedUserName', nameFromUrl); // Store it for future visits
+        const decodedName = decodeURIComponent(nameFromUrl);
+        userNameInput.value = decodedName; // Populate input field with URL name
+        displayBlessing(decodedName);
+        updateHeaderUserName(decodedName);
+        localStorage.setItem('blessedUserName', decodedName); // Store it for future visits
     } else {
         // 2. Check for name in localStorage (for returning users)
         const storedName = localStorage.getItem('blessedUserName');
@@ -94,8 +106,13 @@ document.addEventListener('DOMContentLoaded', () => {
         copyLinkBtn.addEventListener('click', () => {
             shareLinkInput.select();
             shareLinkInput.setSelectionRange(0, 99999); // For mobile devices
-            document.execCommand('copy');
-            alert('लिंक कॉपी हो गया है! / Link copied to clipboard!');
+            try {
+                document.execCommand('copy');
+                alert('लिंक कॉपी हो गया है! / Link copied to clipboard!');
+            } catch (err) {
+                console.error('Failed to copy text:', err);
+                alert('लिंक कॉपी नहीं हो सका। कृपया मैन्युअल रूप से कॉपी करें। / Failed to copy link. Please copy manually.');
+            }
         });
     }
 });
