@@ -1,18 +1,48 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Mahadev Blessings</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="container">
-        <h1>🌿 महादेव का आशीर्वाद 🌿</h1>
-        <p>प्रियजनों को भेजें भक्ति भरा तोहफा</p>
-        <button onclick="startBlessing()">आशीर्वाद भेजें</button>
-    </div>
-    <a href="donation.html"><button>दान करें</button></a>
-    <a href="shop.html"><button>🛒 स्टिकर्स खरीदें</button></a>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahadev Blessings - Home</title>
+    <link rel="stylesheet" href="style.css">
+    </head>
+<body class="homepage-background">
+    <header class="main-header">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="order.html">Order</a></li>
+                <li><a href="donate.html">Donate</a></li>
+                <li><a href="admin-login.html">Admin Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="blessings-page-content">
+        <div class="banner-container">
+            <img src="assets/banner.gif" alt="Mahadev Blessings Banner" class="blessings-banner">
+        </div>
+
+        <section class="blessing-section">
+            <h1>Receive Mahadev's Blessings</h1>
+            <div class="input-area">
+                <label for="userName">Enter Your Name:</label>
+                <input type="text" id="userName" placeholder="Your Name">
+                <button id="getBlessingBtn">Get Blessing</button>
+            </div>
+            <div class="blessing-output">
+                <p id="blessingText">Mahadev ki kripa ho tum par [NAME], har sankat door ho jaye, aur jeevan me shanti barse. ✨🕉️</p>
+                <img id="blessingGif" src="assets/blessing1.gif" alt="Mahadev Blessing GIF">
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2025 Mahadev Blessings. All rights reserved.</p>
+    </footer>
+
     <script src="script.js"></script>
 </body>
-</html>
+</h
+    tml>
