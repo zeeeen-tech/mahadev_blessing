@@ -3,20 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mahadev Blessings - Home</title>
+    <title>Mahadev Blessings</title>
     <link rel="stylesheet" href="style.css">
-    </head>
+</head>
 <body class="homepage-background">
     <header class="main-header">
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="order.html">Order</a></li>
-                <li><a href="donate.html">Donate</a></li>
-                <li><a href="admin-login.html">Admin Login</a></li>
-            </ul>
-        </nav>
+        <div class="header-content">
+            <h1 id="mainTitle">महादेव आशीर्वाद | Mahadev Blessings <span id="userNameInTitle"></span></h1>
+            <a href="donate.html" class="donate-btn blinking-yellow">Donate Now!</a>
+            </div>
     </header>
 
     <main class="blessings-page-content">
@@ -25,15 +20,28 @@
         </div>
 
         <section class="blessing-section">
-            <h1>Receive Mahadev's Blessings</h1>
-            <div class="input-area">
-                <label for="userName">Enter Your Name:</label>
-                <input type="text" id="userName" placeholder="Your Name">
-                <button id="getBlessingBtn">Get Blessing</button>
+            <h2>अपना नाम दर्ज करें और महादेव का आशीर्वाद प्राप्त करें</h2>
+            <h2>Enter Your Name and Receive Mahadev's Blessing</h2>
+
+            <div class="sender-input-area">
+                <label for="userName">अपना नाम यहाँ लिखें / Enter Your Name Here:</label>
+                <input type="text" id="userName" placeholder="आपका नाम / Your Name">
+                <button id="getBlessingBtn">आशीर्वाद प्राप्त करें / Get Blessing</button>
             </div>
+
             <div class="blessing-output">
-                <p id="blessingText">Mahadev ki kripa ho tum par [NAME], har sankat door ho jaye, aur jeevan me shanti barse. ✨🕉️</p>
+                <p id="blessingText">
+                    महादेव की कृपा आप पर [NAME] सदैव बनी रहे। आपके जीवन में सुख, शांति और समृद्धि की वर्षा हो, [NAME]। हर बाधा दूर हो, और आप [NAME] हमेशा खुश रहें। हर हर महादेव!
+                    <br><br>
+                    May Lord Mahadev's grace always be upon you, [NAME]. May joy, peace, and prosperity shower upon your life, [NAME]. May every obstacle be removed, and may you, [NAME], always be happy. Har Har Mahadev!
+                </p>
                 <img id="blessingGif" src="assets/blessing1.gif" alt="Mahadev Blessing GIF">
+            </div>
+
+            <div id="shareLinkContainer" style="display:none; margin-top: 20px;">
+                <p>इस आशीर्वाद को साझा करें / Share this blessing:</p>
+                <input type="text" id="shareLink" readonly style="width: 80%; padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+                <button id="copyLinkBtn" style="padding: 10px 15px; margin-left: 10px;">कॉपी करें / Copy</button>
             </div>
         </section>
     </main>
@@ -44,5 +52,4 @@
 
     <script src="script.js"></script>
 </body>
-</h
-    tml>
+</html>
