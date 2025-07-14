@@ -34,17 +34,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Function to display a blessing - NOW CALLED AFTER COUNTDOWN
+    // Function to display a blessing
     function displayBlessing(nameToBless) {
         const selectedBlessing = bigBlessings[currentBlessingIndex % bigBlessings.length];
-        // If you add more blessings to the array and want to rotate them:
-        // currentBlessingIndex = (currentBlessingIndex + 1) % bigBlessings.length;
 
         const blessedText = selectedBlessing.text.replace(/\[NAME\]/g, nameToBless);
         blessingTextOutput.innerHTML = blessedText.replace(/\n/g, '<br>');
 
         blessingGifOutput.src = selectedBlessing.gif;
         blessingGifOutput.alt = `Mahadev Blessing for ${nameToBless}`;
+
+        // Ensure the blessing output div is visible
+        blessingTextOutput.parentElement.style.display = 'block'; // This targets the .blessing-output div
 
         // Generate and display shareable link
         const currentUrl = new URL(window.location.origin + window.location.pathname);
@@ -60,8 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
         countdownContainer.style.display = 'block'; // Show countdown container
 
         // Hide blessing output and share link immediately when countdown starts
-        blessingTextOutput.style.display = 'none';
-        blessingGifOutput.style.display = 'none';
+        blessingTextOutput.parentElement.style.display = 'none'; // Hide the parent .blessing-output div
         shareLinkContainer.style.display = 'none'; // Hide share link during countdown
 
         const countdownInterval = setInterval(() => {
@@ -73,11 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 countdownContainer.style.display = 'none'; // Hide countdown container
 
                 displayBlessing(name); // Display the blessing after countdown
-
-                // Make blessing output and share link visible
-                blessingTextOutput.style.display = 'block';
-                blessingGifOutput.style.display = 'block';
-                // shareLinkContainer display is handled within displayBlessing
+                // The display: 'block' for blessing output and share link is now handled inside displayBlessing
             }
         }, 1000); // Every 1 second
     }
@@ -85,7 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- On Page Load ---
 
-    // 1. Check for name in URL query parameter (for shared links)
     const urlParams = new URLSearchParams(window.location.search);
     const nameFromUrl = urlParams.get('name');
 
@@ -99,13 +94,10 @@ document.addEventListener('DOMContentLoaded', () => {
         startBlessingCountdown(decodedName);
 
     } else {
-        // 2. Check for name in localStorage (for returning users)
         const storedName = localStorage.getItem('blessedUserName');
         if (storedName) {
             userNameInput.value = storedName;
             updateHeaderUserName(storedName);
-            // No auto-countdown/display here unless user clicks "Get Blessing"
-            // or if we decide to have a default blessing immediately for returning users
         }
     }
 
@@ -139,3 +131,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+        
