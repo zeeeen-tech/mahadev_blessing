@@ -3,83 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>महादेव आशीर्वाद | Mahadev Blessings</title>
-    <link rel="stylesheet" href="styles.css">
+    <title id="pageTitle">क्या काशी गिफ्ट भेजा है? | Has Kashi Sent a Gift?</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="homepage-background">
-    <header class="main-header">
-        <div class="header-content">
-            <h1 id="mainTitle">महादेव आशीर्वाद | Mahadev Blessings <span id="receiverNameInTitle"></span></h1>
-            <div id="senderNameDisplay" class="sender-name-prominent" style="display:none;"></div>
-            <a href="donate.html" class="donate-btn blinking-yellow">अभी दान करें! | Donate Now!</a>
+<body class="shiva-background">
+    <header>
+        <div class="container">
+            <h1 id="mainHeaderTitle">क्या काशी गिफ्ट भेजा है? <span id="senderNameInTitle"></span></h1>
         </div>
     </header>
 
-    <main class="blessings-page-content">
-        <div class="banner-container">
-            <img src="assets/banner.gif" alt="महादेव आशीर्वाद बैनर | Mahadev Blessings Banner" class="blessings-banner">
-        </div>
+    <main class="container">
+        <section id="receiverHomePage">
+            <h2>अपना नाम दाखें | Enter Your Name</h2>
+            <p>कृपया अपना नाम दर्ज करें और जानें किसने भेजा है आपके लिए ये महादेव आशीर्वाद!</p>
+            <p>Please enter your name to reveal who sent you this Mahadev blessing!</p>
 
-        <section class="blessing-section">
-            <div id="senderInputArea">
-                <h2>अपना आशीर्वाद यहाँ से भेजें | Send Your Blessing From Here</h2>
-
-                <div class="input-group">
-                    <label for="senderName">आपका नाम / Your Name:</label>
-                    <input type="text" id="senderName" placeholder="आपका नाम / Your Name">
-                </div>
-
-                <div class="input-group">
-                    <label for="receiverName">जिसे भेजना है उसका नाम / Receiver's Name:</label>
-                    <input type="text" id="receiverName" placeholder="प्राप्तकर्ता का नाम / Receiver's Name">
-                </div>
-
-                <h3>आशीर्वाद चुनें / Choose a Blessing:</h3>
-                <div class="blessing-choices">
-                    <label>
-                        <input type="radio" name="blessingChoice" value="0" checked>
-                        <span>आशीर्वाद 1 / Blessing 1</span>
-                        <img src="assets/blessing1.gif" alt="आशीर्वाद 1 थंबनेल | Blessing 1 Thumbnail" class="blessing-thumb">
-                    </label>
-                    <label>
-                        <input type="radio" name="blessingChoice" value="1">
-                        <span>आशीर्वाद 2 / Blessing 2</span>
-                        <img src="assets/blessing2.gif" alt="आशीर्वाद 2 थंबनेल | Blessing 2 Thumbnail" class="blessing-thumb">
-                    </label>
-                     <label>
-                        <input type="radio" name="blessingChoice" value="2">
-                        <span>आशीर्वाद 3 / Blessing 3</span>
-                        <img src="assets/blessing3.gif" alt="आशीर्वाद 3 थंबनेल | Blessing 3 Thumbnail" class="blessing-thumb">
-                    </label>
-                    </div>
-
-                <button id="generateBlessingBtn">आशीर्वाद बनाएं और साझा करें | Generate Blessing & Share</button>
-            </div>
-
-            <div id="countdownContainer" style="display:none; margin-top: 30px; font-size: 1.8em; color: #f39c12; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
-                आशीर्वाद लोड हो रहा है... <span id="countdown">10</span> सेकंड में
-                <br>
-                Blessing loading in... <span id="countdown">10</span> seconds
-            </div>
-
-            <div id="receiverDisplayArea" style="display:none;">
-                <h2 id="personalizedReceiverTitle" class="receiver-title"></h2>
-
-                <div class="blessing-output">
-                    <p id="blessingText"></p>
-                    <img id="blessingGif" src="" alt="महादेव आशीर्वाद GIF | Mahadev Blessing GIF">
-                </div>
-
-                <div id="shareLinkContainer" style="margin-top: 20px;">
-                    <p>इस आशीर्वाद को साझा करें / Share this blessing:</p>
-                    <input type="text" id="shareLink" readonly style="width: 80%; padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
-                    <button id="copyLinkBtn" style="padding: 10px 15px; margin-left: 10px;">कॉपी करें / Copy</button>
-                </div>
-            </div>
+            <input type="text" id="receiverNameInput" placeholder="आपका नाम यहाँ / Your Name Here">
+            <button id="openGiftBtn">गिफ्ट खोलें | Open Gift</button>
         </section>
     </main>
 
-    <footer class="main-footer">
+    <footer>
         <div class="donation-message">
             <h3>मानवता की सेवा ही सबसे बड़ा धर्म है | Service to Humanity is the Greatest Dharma</h3>
             <p>
