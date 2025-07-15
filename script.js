@@ -63,13 +63,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     const encodedSenderName = encodeURIComponent(senderName);
 
                     // For sender page, generate a link for general recipient (no specific receiver name)
-                    // The receiver page will then handle displaying 'प्रिय भक्त' if no name is in URL.
                     const blessingLink = `${window.location.origin}/receiver.html?sender=${encodedSenderName}&blessingId=${blessingId}`;
 
                     generatedLinkInput.value = blessingLink;
-                    shareLinkSection.style.display = 'block';
+                    shareLinkSection.style.display = 'block'; // Share section ko visible karein
 
-                    // Update share buttons
+                    // Update share buttons with the new link and text
                     const whatsappText = `आपको ${senderName} की ओर से महादेव का आशीर्वाद मिला है! इसे खोलने के लिए यहां क्लिक करें: ${blessingLink}`;
                     whatsappShareBtn.href = `https://wa.me/?text=${encodeURIComponent(whatsappText)}`;
 
@@ -99,14 +98,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const personalizedBlessingTitle = document.getElementById('personalizedBlessingTitle');
         const blessingTextOutput = document.getElementById('blessingText');
         const blessingGif = document.getElementById('blessingGif');
-        const receiverPageTitle = document.getElementById('receiverPageTitle'); // Added this
+        const receiverPageTitle = document.getElementById('receiverPageTitle');
 
         const urlParams = new URLSearchParams(window.location.search);
-        const receiverName = urlParams.get('name') || 'प्रिय भक्त'; // Default to 'प्रिय भक्त'
-        const senderName = urlParams.get('sender') || 'महादेव'; // Default to 'महादेव'
+        // Receiver name for receiver.html, or 'प्रिय भक्त' if not specified from index.html
+        const receiverName = urlParams.get('name') || 'प्रिय भक्त';
+        // Sender name from link generated via sender.html, or 'महादेव' default
+        const senderName = urlParams.get('sender') || 'महादेव';
         let blessingId = urlParams.get('blessingId');
 
-        // Update HTML document title
+        // Update HTML document title (browser tab title)
         if (receiverPageTitle) {
             receiverPageTitle.textContent = `${receiverName} के लिए आशीर्वाद | Blessing for ${receiverName}`;
         }
