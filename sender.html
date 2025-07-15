@@ -3,25 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>प्रेषक पेज | Sender Page (Not in use)</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>महादेव आशीर्वाद भेजें | Send Mahadev's Blessing</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="homepage-background">
-    <header class="main-header">
-        <div class="header-content">
-            <h1>यह पेज उपयोग में नहीं है | This page is not in use</h1>
+<body class="shiva-background">
+    <header>
+        <div class="container" style="position: relative;">
+            <h1 id="mainHeaderTitle">महादेव का आशीर्वाद | Mahadev's Blessing</h1>
+            <a href="donate.html" class="btn donation-top-btn">दान करें | Donate</a>
         </div>
     </header>
 
-    <main>
-        <section style="text-align: center; padding: 50px; color: white;">
-            <p>कृपया मुख्य पेज पर जाएं: <a href="index.html" style="color: #FFD700;">महादेव आशीर्वाद</a></p>
-            <p>Please go to the main page: <a href="index.html" style="color: #FFD700;">Mahadev Blessings</a></p>
+    <main class="container">
+        <section id="senderInputArea">
+            <h2>आशीर्वाद भेजें | Send a Blessing</h2>
+            <p>अपना और प्राप्तकर्ता का नाम दर्ज करें, फिर एक आशीर्वाद चुनें:</p>
+            <p>Enter your name and the receiver's name, then choose a blessing:</p>
+
+            <label for="senderNameInput">आपका नाम / Your Name:</label>
+            <input type="text" id="senderNameInput" placeholder="आपका नाम / Your Name">
+
+            <label for="receiverNameInput">प्राप्तकर्ता का नाम / Receiver's Name:</label>
+            <input type="text" id="receiverNameInput" placeholder="प्राप्तकर्ता का नाम / Receiver's Name">
+
+            <h3>एक आशीर्वाद चुनें / Choose a Blessing:</h3>
+            <div class="blessing-options">
+                <label>
+                    <input type="radio" name="blessingChoice" value="0" checked> जय खेशवर!
+                </label>
+                <label>
+                    <input type="radio" name="blessingChoice" value="1"> महादेव आपके सभी दुखों को दूर करें।
+                </label>
+                <label>
+                    <input type="radio" name="blessingChoice" value="2"> शिव की जोत आपकी जीवन को नये प्रकाश की तरह चमका दे!
+                </label>
+                <label>
+                    <input type="radio" name="blessingChoice" value="3"> भोलेनाथ का आशीर्वाद आपके हर कार्य में सफलता दिलाए।
+                </label>
+                <label>
+                    <input type="radio" name="blessingChoice" value="4"> देवाधिदेव महादेव की कृपा से आपका घर सुख-समृद्धि से भरा रहे।
+                </label>
+                <label>
+                    <input type="radio" name="blessingChoice" value="5"> ओम नमः शिवाय! महादेव की असीम कृपा आप पर बनी रहे।
+                </label>
+                <label>
+                    <input type="radio" name="blessingChoice" value="6"> आपकी सभी मनोकामनाएं पूर्ण हों, महादेव का आशीर्वाद सदा आपके साथ है।
+                </label>
+                <label>
+                    <input type="radio" name="blessingChoice" value="7"> महाकाल का आशीर्वाद आपको शक्ति और धैर्य प्रदान करे।
+                </label>
+            </div>
+            <button class="btn" id="generateLinkBtn">लिंक बनाएं | Generate Link</button>
+        </section>
+
+        <section class="share-link-section" id="shareLinkSection" style="display:none;">
+            <h3>इस आशीर्वाद को साझा करें | Share this blessing:</h3>
+            <input type="text" id="generatedLinkInput" readonly>
+            <div class="share-buttons">
+                <button class="btn" id="copyLinkBtn">कॉपी करें | Copy</button>
+                <a href="#" id="whatsappShareBtn" class="btn whatsapp-btn" target="_blank">WhatsApp</a>
+                <a href="#" id="facebookShareBtn" class="btn facebook-btn" target="_blank">Facebook</a>
+            </div>
         </section>
     </main>
 
-    <footer class="main-footer">
+    <footer>
+        <div class="donation-message">
+            <h3>मानवता की सेवा ही सबसे बड़ा धर्म है | Service to Humanity is the Greatest Dharma</h3>
+            <p>
+                महादेव के आशीर्वाद और मानवता की सेवा में एक कदम बढ़ाएं। 'हेल्पिंग हैंड्स फॉर ह्यूमैनिटी' के माध्यम से आपका भक्ति दान (Bhakti Daan) सीधे उन लोगों तक पहुंचेगा जिन्हें इसकी सबसे ज़्यादा ज़रूरत है। आपके छोटे से योगदान से कई जीवन में सकारात्मक बदलाव आ सकता है।
+                <br>
+                Extend a helping hand in the spirit of Mahadev's blessings and service to humanity. Through 'Helping Hands for Humanity', your devotional contribution (Bhakti Daan) will directly reach those who need it most. Your small donation can bring a positive change in many lives.
+            </p>
+            <p>
+                अधिक जानकारी या दान के लिए, कृपया हमसे संपर्क करें:
+                <br>
+                For more information or to donate, please contact us:
+                <br>
+                <a href="mailto:info.helpinghandsforhumanity39@gmail.com" class="donation-email">info.helpinghandsforhumanity39@gmail.com</a>
+            </p>
+        </div>
         <p>&copy; 2025 महादेव आशीर्वाद | Mahadev Blessings. सर्वाधिकार सुरक्षित | All rights reserved.</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
