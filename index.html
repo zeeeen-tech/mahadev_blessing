@@ -1,52 +1,60 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blessings Beyond Borders</title>
+    <title>Mahadev Ka Aashirwad</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1 id="pageTitle">Blessings Beyond Borders</h1>
-            <p>Send divine blessings to your loved ones with Mahadev's grace</p>
-        </div>
 
-        <div class="content">
-            <div class="form-group">
-                <input type="text" id="receiverName" placeholder="अपना नाम दाखें">
-            </div>
-            
-            <button class="btn" onclick="openGift()">
-                <i class="fas fa-gift"></i> गिफ्ट खोलें
-            </button>
-            
-            <div style="text-align: center; margin-top: 30px;">
-                <button class="btn btn-secondary" onclick="window.location.href='sender.html'">
-                    <i class="fas fa-share-alt"></i> अपना गिफ्ट भेजें
-                </button>
-                <button class="btn" onclick="window.location.href='donate.html'" style="background: #4CAF50;">
-                    <i class="fas fa-hands-helping"></i> दान करें
-                </button>
-            </div>
-        </div>
+    <div class="background-overlay"></div>
+
+    <div class="container">
+        <header>
+            <h1>ॐ नमः शिवाय</h1>
+            <h2>महादेव का आशीर्वाद</h2>
+        </header>
+
+        <main>
+            <section class="blessing-display">
+                <p id="greetingMessage">जय भोलेनाथ!</p>
+                <div id="mahadevImageContainer">
+                    <img id="mahadevImage" src="mahadev_placeholder.jpg" alt="Lord Mahadev" class="hidden">
+                </div>
+                <p id="blessingText" class="hidden">Click 'Blessings Prapt Karein' for your divine message.</p>
+            </section>
+
+            <section class="button-section">
+                <div class="button-container">
+                    <button id="getBlessingBtn" class="action-button">
+                        <span class="icon">🙏</span>
+                        Blessings Prapt Karein
+                    </button>
+
+                    <button id="donateBtn" class="action-button">
+                        <span class="icon">💲</span>
+                        महादेव को अर्पण करें
+                    </button>
+
+                    <button id="shareBlessingBtn" class="action-button">
+                        <span class="icon">✉️</span>
+                        आशीर्वाद Share Karein
+                    </button>
+                </div>
+            </section>
+
+            <section class="info-section">
+                <p>महादेव की कृपा आप पर सदा बनी रहे।</p>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 महादेव की कृपा। सभी अधिकार सुरक्षित।</p>
+        </footer>
     </div>
 
-    <script>
-        // Set title with sender name from URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const senderName = urlParams.get('from');
-        if (senderName) {
-            document.getElementById('pageTitle').textContent = 
-                `क्या काशी गिफ्ट भेजा है? - From ${senderName}`;
-        }
-
-        function openGift() {
-            const receiverName = document.getElementById('receiverName').value || 'मित्र';
-            window.location.href = `receiver.html?name=${encodeURIComponent(receiverName)}`;
-        }
-    </script>
+    <script src="script.js" defer></script>
 </body>
 </html>
