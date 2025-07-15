@@ -1,37 +1,39 @@
 /* General Body Styles */
 body {
-    font-family: 'Comic Sans MS', 'Arial', sans-serif; /* Changed font-family for a more playful/cartoonic feel */
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    color: #333; /* Default dark text color for contrast on white/light containers */
+    color: #333;
     line-height: 1.6;
     overflow-x: hidden;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    /* Fallback background color if GIF fails to load */
+    background-color: #f0f8ff; /* A very light blue/lavender */
 }
 
-/* Background Image Styling - Using the new light background image. Assuming 'shiva.gif' is in 'assets' folder */
+/* Background Image Styling */
 .shiva-background {
-    background-image: url('assets/shiva.gif'); /* **IMPORTANT: Make sure you have shiva.gif in your assets folder** */
+    background-image: url('assets/shiva.gif'); /* **IMPORTANT: Ensure shiva.gif is in your assets folder** */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
-/* Common Container for main content - Even more cartoonic/friendly look */
+/* Common Container for main content - Now semi-transparent */
 .container {
     max-width: 900px;
-    margin: 30px auto; /* Thoda zyada margin */
-    padding: 30px; /* Thoda zyada padding */
-    background-color: rgba(255, 255, 255, 0.98); /* Near solid white for very clear text */
-    border-radius: 35px; /* Bahut zyada golai for super friendly look */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25); /* Softer, spread out shadow */
+    margin: 30px auto;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly more transparent white */
+    border-radius: 35px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
     box-sizing: border-box;
     position: relative;
     text-align: center;
-    border: 3px solid #FFC107; /* Bright Amber golden border for warmth and pop */
+    border: 3px solid #FFC107;
 }
 
 .main-content-wrapper {
@@ -40,33 +42,33 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 70px; /* Header ke neeche space */
-    padding-bottom: 70px; /* Footer ke upar space */
+    padding-top: 70px;
+    padding-bottom: 70px;
 }
 
 .centered-content {
     width: 100%;
-    max-width: 700px; /* Content ki max width thodi aur badhai */
+    max-width: 700px;
     margin: auto;
 }
 
 /* Header Specific Styles */
 header {
     width: 100%;
-    background-color: #62B859; /* Brighter, more playful green for header */
+    background-color: #62B859; /* Playful green */
     padding: 12px 0;
     color: white;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
     position: sticky;
     top: 0;
     z-index: 1000;
-    border-bottom: 5px solid #FFD700; /* Golden border at bottom of header */
+    border-bottom: 5px solid #FFD700;
 }
 
 .header-container {
-    background-color: transparent;
+    background-color: transparent; /* No background here, allowing header background to show */
     box-shadow: none;
-    padding: 0 25px; /* Thoda zyada padding */
+    padding: 0 25px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -74,37 +76,37 @@ header {
 }
 
 #mainHeaderTitle {
-    color: #FFFFFF; /* Pure White color for main header title for maximum contrast */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Stronger shadow */
+    color: #FFFFFF;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
     margin: 0;
     padding: 10px 0;
-    font-size: 2.8em; /* Aur zyada bada font */
-    font-weight: bolder; /* Aur zyada bold */
+    font-size: 2.8em;
+    font-weight: bolder;
 }
 
-/* Button Styling (General) - More vibrant and friendly */
+/* Button Styling (General) */
 .btn {
-    background-color: #FF5722; /* Deep Orange for buttons - very vibrant and cartoonic */
+    background-color: #FF5722; /* Deep Orange */
     color: white;
-    padding: 16px 35px; /* Thoda zyada padding */
+    padding: 16px 35px;
     border: none;
-    border-radius: 12px; /* More rounded buttons */
+    border-radius: 12px;
     cursor: pointer;
-    font-size: 1.3em; /* Bada font */
+    font-size: 1.3em;
     font-weight: bold;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-    margin-top: 25px; /* Thoda zyada margin top */
+    margin-top: 25px;
     text-decoration: none;
     display: inline-block;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4); /* Pronounced shadow */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
 }
 .btn:hover {
-    background-color: #E64A19; /* Darker orange on hover */
-    transform: translateY(-3px); /* Lift effect on hover */
+    background-color: #E64A19;
+    transform: translateY(-3px);
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
 }
 
-/* Top Donation Button - Remains red and blinking */
+/* Top Donation Button */
 @keyframes blink {
     0% { opacity: 1; }
     50% { opacity: 0.5; }
@@ -115,8 +117,8 @@ header {
     background-color: #FF0000; /* RED color for donate button */
     color: white;
     padding: 10px 20px;
-    font-size: 1.2em; /* Thoda bada */
-    border-radius: 10px; /* Slightly more rounded */
+    font-size: 1.2em;
+    border-radius: 10px;
     text-decoration: none;
     transition: background-color 0.3s ease, transform 0.2s ease;
     z-index: 1000;
@@ -133,21 +135,21 @@ header {
 
 /* Text Styles for improved readability & cartoonic feel */
 h2 {
-    font-size: 2.3em; /* Badi heading */
+    font-size: 2.3em;
     color: #4CAF50; /* Green for headings */
-    margin-bottom: 20px; /* Thoda zyada space */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Stronger shadow for pop */
-    font-weight: bolder; /* Aur zyada bold */
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    font-weight: bolder;
 }
 .english-subtext {
-    font-size: 1em; /* Smaller font for English translation */
+    font-size: 1em;
     color: #666;
-    margin-top: -10px; /* Bring closer to Hindi text */
+    margin-top: -10px;
     margin-bottom: 20px;
 }
 
 h3 {
-    font-size: 1.8em; /* Sub-headings ke liye */
+    font-size: 1.8em;
     color: #FF5722; /* Deep Orange for sub-headings */
     margin-top: 25px;
     margin-bottom: 15px;
@@ -156,53 +158,53 @@ h3 {
 }
 
 p {
-    font-size: 1.2em; /* Bada paragraph font */
-    color: #444; /* Slightly darker grey for paragraphs */
+    font-size: 1.2em;
+    color: #444;
     margin-bottom: 15px;
 }
 
-/* Input Field Styling - Even less boxy, more rounded */
+/* Input Field Styling */
 .input-group {
-    margin-bottom: 30px; /* Thoda zyada space */
+    margin-bottom: 30px;
     text-align: left;
 }
 
 .input-group label {
     display: block;
-    margin-bottom: 12px; /* Label aur input ke beech space */
-    font-size: 1.3em; /* Bada label font */
-    color: #333; /* Darker color for labels */
+    margin-bottom: 12px;
+    font-size: 1.3em;
+    color: #333;
     font-weight: bold;
-    text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.8); /* Light shadow on label */
+    text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.8);
 }
 
 input[type="text"], input[type="email"] {
-    width: calc(100% - 32px); /* Adjust width to fit container with more padding */
-    padding: 16px; /* Zyada padding */
-    border: 3px solid #FFC107; /* Bright Amber golden border */
-    border-radius: 15px; /* More rounded */
-    font-size: 1.3em; /* Bada font */
+    width: calc(100% - 32px);
+    padding: 16px;
+    border: 3px solid #FFC107;
+    border-radius: 15px;
+    font-size: 1.3em;
     box-sizing: border-box;
-    background-color: #FEFEFE; /* Near white background */
+    background-color: #FEFEFE;
     color: #333;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 input[type="text"]:focus, input[type="email"]:focus {
-    border-color: #FF5722; /* Focus par deep orange border */
+    border-color: #FF5722;
     outline: none;
-    box-shadow: 0 0 12px rgba(255, 87, 34, 0.6); /* Soft deep orange shadow on focus */
+    box-shadow: 0 0 12px rgba(255, 87, 34, 0.6);
 }
 
 /* Radio Button Options */
 .blessing-options {
     text-align: left;
     margin-top: 30px;
-    padding: 20px; /* Zyada padding */
-    border: 2px solid #FFC107; /* Golden border */
-    border-radius: 18px; /* More rounded options box */
-    background-color: #FFFDE7; /* Very light yellow background for options - friendly */
-    box-shadow: inset 0 2px 5px rgba(0,0,0,0.1); /* Subtle inner shadow */
+    padding: 20px;
+    border: 2px solid #FFC107;
+    border-radius: 18px;
+    background-color: #FFFDE7;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .blessing-options label {
@@ -218,26 +220,26 @@ input[type="text"]:focus, input[type="email"]:focus {
 }
 
 .blessing-options label:hover {
-    color: #FF5722; /* Hover par deep orange highlight */
-    background-color: #FFECB3; /* Light orange background on hover */
+    color: #FF5722;
+    background-color: #FFECB3;
 }
 
 .blessing-options input[type="radio"] {
     margin-right: 15px;
-    transform: scale(1.3); /* Aur bada radio button */
+    transform: scale(1.3);
 }
 
 /* Share Link Section */
 #shareLinkSection {
     margin-top: 40px;
-    border-top: 3px solid #FFC107; /* Golden separator */
+    border-top: 3px solid #FFC107;
     padding-top: 30px;
 }
 
 #generatedLinkInput {
     cursor: text;
-    background-color: #E0E0E0; /* Slightly darker background for readonly input */
-    border: 2px dashed #9E9E9E; /* Dashed border for visual cue */
+    background-color: #E0E0E0;
+    border: 2px dashed #9E9E9E;
     border-radius: 10px;
     font-weight: bold;
 }
@@ -269,45 +271,45 @@ input[type="text"]:focus, input[type="email"]:focus {
 #countdownSection .countdown-text {
     font-size: 2.2em;
     font-weight: bolder;
-    color: #FF5722; /* Deep Orange for countdown text */
+    color: #FF5722;
     margin-top: 25px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 #countdownDisplay {
-    font-size: 3.5em; /* Aur bada countdown number */
+    font-size: 3.5em;
     color: #FF0000;
     font-weight: bolder;
 }
 
 #personalizedBlessingTitle {
-    font-size: 2.5em; /* Bada title */
-    color: #4CAF50; /* Green for blessing title */
+    font-size: 2.5em;
+    color: #4CAF50;
     margin-bottom: 30px;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
     font-weight: bolder;
 }
 
 .blessing-gif {
-    max-width: 95%; /* GIF ko thoda aur adjust kiya */
+    max-width: 95%;
     height: auto;
-    border-radius: 20px; /* More rounded GIF */
+    border-radius: 20px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.35);
     margin-bottom: 30px;
-    border: 4px solid #FFC107; /* Thicker golden border around GIF */
+    border: 4px solid #FFC107;
 }
 
 #blessingText {
-    font-size: 1.5em; /* Thoda aur bada font */
-    color: #333;
+    font-size: 1.5em;
+    color: #333; /* Ensuring consistent dark text color */
     background-color: #FFFFFF;
     padding: 25px;
-    border-radius: 20px; /* More rounded */
+    border-radius: 20px;
     margin-top: 20px;
     line-height: 1.8;
     font-weight: bold;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
-    border: 2px solid #FF5722; /* Orange border for blessing text box */
+    border: 2px solid #FF5722;
 }
 
 /* Secondary Action Links */
@@ -317,7 +319,7 @@ input[type="text"]:focus, input[type="email"]:focus {
     color: #555;
 }
 .secondary-action a {
-    color: #FF5722; /* Deep Orange link */
+    color: #FF5722;
     text-decoration: none;
     font-weight: bold;
 }
@@ -325,13 +327,13 @@ input[type="text"]:focus, input[type="email"]:focus {
     text-decoration: underline;
 }
 
-/* Common Footer Styling - Remains consistent */
+/* Common Footer Styling */
 footer {
     background-color: #333;
     color: #FFD700;
     padding: 30px 20px;
     text-align: center;
-    border-top: 6px solid #FFD700; /* Thicker golden border on top */
+    border-top: 6px solid #FFD700;
     margin-top: auto;
 }
 
@@ -427,5 +429,4 @@ footer p:last-child {
         font-size: 1.3em;
     }
     }
-
-    
+        
