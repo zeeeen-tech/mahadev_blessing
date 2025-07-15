@@ -3,24 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="pageTitle">क्या काशी गिफ्ट भेजा है? | Has Kashi Sent a Gift?</title>
+    <title>महादेव का आशीर्वाद | Mahadev's Blessing</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="shiva-background">
     <header>
-        <div class="container">
-            <h1 id="mainHeaderTitle">क्या काशी गिफ्ट भेजा है? <span id="senderNameInTitle"></span></h1>
+        <div class="container" style="position: relative;">
+            <h1 id="mainHeaderTitle">महादेव का आशीर्वाद | Mahadev's Blessing</h1>
+            <a href="donate.html" class="btn donation-top-btn">दान करें | Donate</a>
         </div>
     </header>
 
     <main class="container">
-        <section id="receiverHomePage">
-            <h2>अपना नाम दाखें | Enter Your Name</h2>
+        <section id="senderInputArea">
+            <h2>अपना नाम दाख़िल करें | Enter Your Name</h2>
             <p>कृपया अपना नाम दर्ज करें और जानें किसने भेजा है आपके लिए ये महादेव आशीर्वाद!</p>
             <p>Please enter your name to reveal who sent you this Mahadev blessing!</p>
+            <input type="text" id="senderNameInput" placeholder="अपना नाम यहाँ / Your Name Here">
+            <button class="btn" id="openGiftBtn">गिफ्ट खोलें | Open Gift</button>
+        </section>
 
-            <input type="text" id="receiverNameInput" placeholder="आपका नाम यहाँ / Your Name Here">
-            <button id="openGiftBtn">गिफ्ट खोलें | Open Gift</button>
+        <section class="share-link-section" id="shareLinkSection" style="display:none;">
+            <h3>इस आशीर्वाद को साझा करें | Share this blessing:</h3>
+            <input type="text" id="generatedLinkInput" readonly>
+            <div class="share-buttons">
+                <button class="btn" id="copyLinkBtn">कॉपी करें | Copy</button>
+                </div>
         </section>
     </main>
 
