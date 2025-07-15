@@ -1,428 +1,94 @@
-/* General Body and Background */
-body {
-    margin: 0;
-    font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif; /* Cartoon-style font */
-    color: #4CAF50; /* Green text for a fresh feel */
-    background: linear-gradient(to bottom right, #FFECB3, #FFCC80); /* Soft orange/light yellow gradient */
-    background-attachment: fixed;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    box-sizing: border-box;
+/* Blinking Animation for Donation Button */
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
 }
 
-/* Specific background for pages with Shiva GIF - ensure shiva.gif exists in assets/ */
-body.shiva-background {
-    background: url('assets/shiva.gif') no-repeat center center fixed;
-    background-size: cover;
-    background-color: #000; /* Fallback for GIF */
-}
-
-
-/* Main Container for Page Content */
-.container {
-    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white for content area */
-    border-radius: 25px; /* More rounded corners for cartoon look */
-    padding: 30px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    max-width: 800px;
-    width: 100%;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    box-sizing: border-box;
-}
-
-/* Header Styles */
-header {
-    width: 100%;
-    max-width: 800px;
-    margin-bottom: 20px;
-}
-
-header h1 {
-    font-size: 2.8em;
-    color: #E65100; /* Deep orange */
-    text-shadow: 3px 3px 0 #FFD700, -3px -3px 0 #FFD700, 3px -3px 0 #FFD700, -3px 3px 0 #FFD700; /* Outline effect */
-    margin-bottom: 10px;
-    line-height: 1.2;
-}
-
-/* General Headings */
-h2 {
-    font-size: 2.2em;
-    color: #F44336; /* Red for headings */
-    margin-top: 25px;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 0 #FFD700;
-}
-
-h3 {
-    font-size: 1.6em;
-    color: #673AB7; /* Purple for sub-headings */
-    margin-top: 20px;
-    margin-bottom: 15px;
-    text-shadow: 1px 1px 0 #FFD700;
-}
-
-/* Text Inputs */
-input[type="text"] {
-    width: calc(100% - 30px); /* Account for padding */
-    padding: 12px 15px;
-    margin-bottom: 15px;
-    border: 2px solid #FFC107; /* Amber border */
-    border-radius: 10px; /* Rounded input fields */
-    font-size: 1.1em;
-    color: #333;
-    background-color: #FFFDE7; /* Light cream background */
-    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-/* Buttons */
-button, .btn {
-    background-color: #FF9800; /* Orange button */
+.donation-top-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    background-color: #4CAF50; /* Green for Donate */
     color: white;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 30px; /* Very rounded */
-    font-size: 1.3em;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-top: 15px;
-}
-
-button:hover, .btn:hover {
-    background-color: #FB8C00; /* Darker orange on hover */
-    transform: translateY(-2px);
-    box-shadow: 0 7px 15px rgba(0, 0, 0, 0.3);
-}
-
-.blinking-btn {
-    animation: blink-animation 1s steps(5, start) infinite;
-    background-color: #FFEB3B; /* Yellow for blinking */
-    color: #D32F2F; /* Red text */
-    border: 3px solid #D32F2F; /* Red border */
-}
-
-.blinking-btn:hover {
-    background-color: #FFD700; /* Darker yellow on hover */
-}
-
-@keyframes blink-animation {
-    to {
-        visibility: hidden;
-    }
-}
-
-/* Specific button styles */
-.copy-btn {
-    background-color: #607D8B; /* Blue-grey for copy */
-}
-.copy-btn:hover {
-    background-color: #455A64;
-}
-
-/* Share Buttons */
-.share-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 25px;
-}
-
-.share-buttons a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #4CAF50; /* Green for share */
-    color: white;
-    padding: 12px 20px;
-    border-radius: 25px;
+    padding: 10px 20px; /* Thoda bada padding */
+    font-size: 1.1em; /* Thoda bada font */
+    border-radius: 8px;
     text-decoration: none;
-    font-weight: bold;
-    font-size: 1.1em;
-    transition: background-color 0.3s ease;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
-}
-
-.share-buttons a:hover {
-    background-color: #43A047;
-    transform: translateY(-1px);
-}
-
-.share-buttons img {
-    width: 24px;
-    height: 24px;
-    margin-right: 8px;
-}
-
-.share-buttons .whatsapp-btn { background-color: #25D366; }
-.share-buttons .whatsapp-btn:hover { background-color: #1DA851; }
-.share-buttons .facebook-btn { background-color: #3B5998; }
-.share-buttons .facebook-btn:hover { background-color: #2C487C; }
-
-
-/* Specific Section Styles */
-.blessing-output {
-    background-color: rgba(255, 255, 255, 0.95);
-    padding: 25px;
-    border-radius: 20px;
-    margin-top: 30px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.blessing-output p {
-    font-size: 1.5em;
-    color: #795548; /* Brown for blessing text */
-    line-height: 1.6;
-    margin-bottom: 20px;
-    white-space: pre-line; /* Respect newlines from JS */
-}
-
-.blessing-output img {
-    max-width: 100%;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* Countdown */
-.countdown-display {
-    font-size: 3em;
-    color: #FF5722; /* Deep orange for countdown */
-    font-weight: bold;
-    margin-top: 30px;
-    text-shadow: 3px 3px 0 #FFD700;
-}
-
-/* Blessing Choice Thumbnails (Sender Page) */
-.blessing-choices {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.blessing-choices label {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.6);
-    border: 3px solid transparent;
-    border-radius: 15px;
-    padding: 10px;
-    transition: all 0.3s ease;
-    width: 120px; /* Fixed size for thumbnails */
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.blessing-choices label:hover {
-    background-color: rgba(255, 255, 255, 0.8);
-    border-color: #FF9800; /* Orange border on hover */
-}
-
-.blessing-choices input[type="radio"] {
-    display: none; /* Hide default radio button */
-}
-
-.blessing-choices input[type="radio"]:checked + span {
-    color: #E65100; /* Deep orange text when selected */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    z-index: 1000; /* Ensure it stays on top */
+    animation: blink 1.5s infinite; /* Blinking effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow */
     font-weight: bold;
 }
 
-.blessing-choices input[type="radio"]:checked + span + .blessing-thumb {
-    border-color: #E65100; /* Deep orange border when selected */
-    box-shadow: 0 0 15px rgba(230, 81, 0, 0.6);
+.donation-top-btn:hover {
+    background-color: #45a049;
+    transform: scale(1.05); /* Slight zoom on hover */
+    animation: none; /* Stop blinking on hover */
 }
 
-.blessing-choices span {
-    margin-top: 8px;
-    font-size: 0.95em;
-    color: #555;
-}
-
-.blessing-thumb {
-    width: 90px; /* Thumbnail size */
-    height: 90px;
-    object-fit: cover;
-    border-radius: 10px;
-    border: 2px solid #DDD; /* Light border */
-    transition: all 0.3s ease;
-}
-
-
-/* Footer */
+/* Common Footer Styling for Donation Message */
 footer {
-    width: 100%;
-    max-width: 800px;
-    margin-top: 30px;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    border-radius: 15px;
-    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
+    background-color: #333; /* Dark background for footer */
+    color: #FFD700; /* Golden text for footer for contrast */
+    padding: 25px 20px; /* Bada padding */
     text-align: center;
-    font-size: 0.9em;
+    border-top: 5px solid #FFD700; /* Golden border on top */
+    margin-top: 30px; /* Space above footer */
 }
 
 .donation-message {
     margin-bottom: 20px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .donation-message h3 {
-    color: #FFD700; /* Gold */
-    font-size: 1.5em;
-    text-shadow: none;
-    margin-bottom: 10px;
+    font-size: 1.6em; /* Bada heading */
+    color: #FF6347; /* Tomato color for heading */
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
 .donation-message p {
-    color: #E0E0E0;
-    line-height: 1.5;
-    margin-bottom: 10px;
+    font-size: 1.15em; /* Bada paragraph text */
+    line-height: 1.8;
+    color: #F8F8F8; /* Light text on dark footer */
+    max-width: 800px;
+    margin: 0 auto 15px auto;
 }
 
-.donation-message a {
-    color: #87CEEB; /* Sky blue */
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.donation-message a:hover {
+.donation-email {
+    color: #87CEEB; /* SkyBlue for email link */
     text-decoration: underline;
-}
-
-/* Donate Page Specific Styles */
-.donate-page-content {
-    background-color: rgba(255, 255, 255, 0.95);
-    padding: 30px;
-    border-radius: 20px;
-    max-width: 700px;
-    margin: 50px auto;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    color: #4CAF50; /* Green text */
-}
-
-.donate-page-content h2 {
-    color: #FF5722; /* Deep orange */
-    font-size: 2.5em;
-    text-shadow: 2px 2px 0 #FFD700;
-}
-
-.donate-page-content p {
+    font-weight: bold;
     font-size: 1.1em;
-    line-height: 1.6;
-    margin-bottom: 15px;
 }
 
-.shloka-section {
-    background-color: #FFF3E0; /* Lighter orange-yellow */
-    padding: 20px;
-    border-radius: 15px;
-    margin-top: 25px;
-    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
-    color: #5D4037; /* Dark brown */
-}
-
-.shloka-section h3 {
-    color: #673AB7; /* Purple */
-    margin-bottom: 10px;
-}
-
-.shloka-section p {
-    font-style: italic;
-    margin-bottom: 10px;
-}
-
-.goals-section {
-    margin-top: 25px;
-}
-
-.goals-section ul {
-    list-style: none;
-    padding: 0;
-}
-
-.goals-section li {
-    background-color: #E8F5E9; /* Light green */
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    font-weight: bold;
-    color: #388E3C; /* Darker green */
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.donate-email-link {
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #2196F3; /* Blue for email link */
-    text-decoration: none;
+footer p:last-child { /* Copyright text */
+    font-size: 0.9em;
+    color: #CCCCCC; /* Lighter grey for copyright */
     margin-top: 20px;
-    display: inline-block;
 }
 
-.donate-email-link:hover {
-    text-decoration: underline;
-}
-
-
-/* Mobile Responsiveness */
+/* Responsive adjustments for header (already had some, refine if needed) */
 @media (max-width: 600px) {
-    header h1 {
-        font-size: 2em;
-    }
-    h2 {
-        font-size: 1.8em;
-    }
-    button, .btn {
-        padding: 12px 20px;
-        font-size: 1.1em;
-    }
-    input[type="text"] {
+    .donation-top-btn {
+        position: static; /* Remove absolute positioning */
+        display: block; /* Make it a block element */
+        width: 80%; /* Take up more width */
+        margin: 10px auto; /* Center it */
         font-size: 1em;
+        padding: 8px 15px;
     }
-    .blessing-output p {
-        font-size: 1.2em;
-    }
-    .countdown-display {
-        font-size: 2.5em;
-    }
-    .blessing-choices label {
-        width: 100px;
-        padding: 8px;
-    }
-    .blessing-thumb {
-        width: 70px;
-        height: 70px;
-    }
-    .share-buttons a {
-        padding: 10px 15px;
-        font-size: 1em;
-    }
-    .share-buttons img {
-        width: 20px;
-        height: 20px;
+    header .container {
+        flex-direction: column;
+        padding-right: 20px;
+        padding-left: 20px; /* Ensure left padding also */
     }
     .donation-message h3 {
-        font-size: 1.3em;
+        font-size: 1.4em;
     }
     .donation-message p {
-        font-size: 0.9em;
+        font-size: 1em;
     }
-    .donate-page-content h2 {
-        font-size: 2em;
-    }
-    }
-    
+}
