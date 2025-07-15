@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="receiverPageTitle">महादेव का आशीर्वाद | Mahadev's Blessing</title>
+    <title id="receiverPageTitle">महादेव आशीर्वाद | Mahadev Blessing</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="assets/favicon.png" type="image/png">
 </head>
@@ -16,20 +16,21 @@
     </header>
 
     <main class="container main-content-wrapper">
-        <section id="countdownSection">
-            <h2>आपका आशीर्वाद आ रहा है!</h2>
-            <p>Your blessing is on its way!</p>
-            <p class="countdown-text">बस <span id="countdownDisplay">10</span> सेकंड में...</p>
-            <p class="countdown-text">In just <span id="countdownDisplay">10</span> seconds...</p>
+        <section id="countdownSection" class="centered-content">
+            <h2 class="countdown-text">आपका आशीर्वाद तैयार हो रहा है...</h2>
+            <h2 class="countdown-text english-subtext">Your blessing is preparing...</h2>
+            <div id="countdownDisplay">10</div>
         </section>
 
-        <section id="blessingDisplaySection" style="display: none;">
-            <h2 id="personalizedBlessingTitle">महादेव का आशीर्वाद</h2>
-            <img id="blessingGif" src="" alt="Mahadev Blessing" class="blessing-gif">
+        <section id="blessingDisplaySection" style="display: none;" class="centered-content">
+            <h2 id="personalizedBlessingTitle">महादेव का आशीर्वाद आपके लिए!</h2>
+            <img id="blessingGif" class="blessing-gif" src="" alt="Mahadev Blessing GIF">
             <p id="blessingText"></p>
-            <p class="secondary-action">
-                क्या आप भी किसी को आशीर्वाद भेजना चाहते हैं? <a href="sender.html">यहां क्लिक करें | Click here</a>
-            </p>
+            <div class="secondary-action">
+                <a href="index.html">एक और आशीर्वाद प्राप्त करें | Get another blessing</a>
+                <br>
+                <a href="sender.html">अपना आशीर्वाद दूसरों को भेजें | Send your blessing to others</a>
+            </div>
         </section>
     </main>
 
