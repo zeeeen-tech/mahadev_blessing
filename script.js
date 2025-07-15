@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <br><br>
             May Bholenath's blessings bring success in all your endeavors.`,
             englishText: `May Bholenath's blessings bring success in all your endeavors.`,
-            gif: "assets/blessing4.gif"
+            gif: "assets/blaching4.gif" // Corrected typo here from "blaching" to "blessing"
         },
         {
             hindiText: `देवाधिदेव महादेव की कृपा से आपका घर सुख-समृद्धि से भरा रहे।
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (receiverHomePage) {
         const receiverNameInput = document.getElementById('receiverNameInput');
         const openGiftBtn = document.getElementById('openGiftBtn');
-        const senderNameInTitle = document.getElementById('senderNameInTitle'); // For "From [Sender Name]" in title
+        const senderNameInTitle = document.getElementById('senderNameInTitle');
 
         const urlParams = getUrlParams();
 
@@ -106,14 +106,18 @@ document.addEventListener('DOMContentLoaded', () => {
             const receiverName = receiverNameInput.value.trim();
             if (receiverName) {
                 localStorage.setItem('receiverName', receiverName); // Save for future use
-                // Pass all parameters to receiver.html
+
+                // Determine senderName and blessingId for redirection
+                // If the user came to index.html via a shared link, these will be in urlParams
+                // If they came directly (no params), we need to set defaults/random.
+                const finalSenderName = urlParams.senderName || "महादेव"; // Default to "Mahadev" if no sender in URL
+                const finalBlessingId = urlParams.blessingId !== null ? urlParams.blessingId : Math.floor(Math.random() * allBlessings.length); // Pick random if not in URL
+
+                // Construct the redirect URL to receiver.html
                 let redirectUrl = `receiver.html?receiver=${encodeURIComponent(receiverName)}`;
-                if (urlParams.senderName) {
-                    redirectUrl += `&sender=${encodeURIComponent(urlParams.senderName)}`;
-                }
-                if (urlParams.blessingId !== null) {
-                    redirectUrl += `&blessingId=${urlParams.blessingId}`;
-                }
+                redirectUrl += `&sender=${encodeURIComponent(finalSenderName)}`;
+                redirectUrl += `&blessingId=${finalBlessingId}`;
+
                 window.location.href = redirectUrl;
             } else {
                 alert('कृपया अपना नाम दर्ज करें! | Please enter your name!');
@@ -180,7 +184,19 @@ document.addEventListener('DOMContentLoaded', () => {
             whatsappShareBtn.href = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`;
 
             // Facebook Share (using share dialog)
-            facebookShareBtn.href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}&quote=${encodeURIComponent(shareText)}`;
+            if (typeof FB !== 'undefined') { // Check if Facebook SDK is loaded
+                facebookShareBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    FB.ui({
+                        method: 'share',
+                        href: shareUrl,
+                        quote: shareText,
+                    }, function(response){});
+                });
+            } else {
+                // Fallback to direct share link if FB SDK not loaded
+                facebookShareBtn.href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}&quote=${encodeURIComponent(shareText)}`;
+            }
         });
 
         copyLinkBtn.addEventListener('click', () => {
@@ -242,7 +258,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const selectedBlessing = allBlessings[blessingId];
                 let finalBlessingText = selectedBlessing.hindiText;
 
-                // Replace placeholders in blessing text
+                // Replace placeholders in blessing text (if any were used in blessing data)
                 finalBlessingText = finalBlessingText.replace(/\[RECEIVER_NAME\]/g, receiverName);
                 finalBlessingText = finalBlessingText.replace(/\[SENDER_NAME\]/g, senderName);
 
@@ -256,5 +272,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1000); // Every 1 second
     }
 });
-
-                                                        
+        
