@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>महादेव का आशीर्वाद | Mahadev's Blessing</title>
+    <title id="mainPageTitle">महादेव आशीर्वाद | Mahadev Blessing</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="assets/favicon.png" type="image/png">
 </head>
@@ -16,17 +16,22 @@
     </header>
 
     <main class="container main-content-wrapper">
-        <section id="homepageSection" class="centered-content">
-            <h2>अपना नाम दर्ज करें और महादेव का आशीर्वाद प्राप्त करें</h2>
-            <p>Enter your name to receive Mahadev's blessing</p>
-            <div class="input-group">
-                <label for="senderNameInput">आपका नाम | Your Name:</label>
-                <input type="text" id="senderNameInput" placeholder="अपना नाम लिखें...">
+        <section id="homeSection">
+            <h2 id="homePageGreeting">महादेव आशीर्वाद प्राप्त करें | Get Mahadev's Blessing</h2>
+            <p id="homePageSubtext">अपना नाम दर्ज करें और महादेव का विशेष आशीर्वाद प्राप्त करने के लिए नीचे क्लिक करें।</p>
+            <p class="english-subtext">Enter your name and click below to receive a special blessing from Mahadev.</p>
+            
+            <div class="input-group centered-content">
+                <label for="userNameInput">आपका नाम | Your Name:</label>
+                <input type="text" id="userNameInput" placeholder="अपना नाम लिखें...">
             </div>
-            <button id="openGiftBtn" class="btn">आशीर्वाद खोलें | Open Blessing</button>
-            <p class="secondary-action">
-                क्या आप भी किसी को आशीर्वाद भेजना चाहते हैं? <a href="sender.html">यहां क्लिक करें | Click here</a>
-            </p>
+            
+            <button id="getBlessingBtn" class="btn">आशीर्वाद खोलें | Open Blessing</button>
+            
+            <div class="secondary-action">
+                <p>या</p>
+                <a href="sender.html">अपना आशीर्वाद दूसरों को भेजें | Send your blessing to others</a>
+            </div>
         </section>
     </main>
 
