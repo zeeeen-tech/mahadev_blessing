@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const urlParams = new URLSearchParams(window.location.search);
         // Receiver name for receiver.html, or 'प्रिय भक्त' if not specified from index.html
-        const receiverName = urlParams.get('name') || 'प्रिय भक्त';
+        const receiverName = urlParams.get('name') || 'प्रिय भक्त'; // Default to 'प्रिय भक्त'
         // Sender name from link generated via sender.html, or 'महादेव' default
         const senderName = urlParams.get('sender') || 'महादेव';
         let blessingId = urlParams.get('blessingId');
