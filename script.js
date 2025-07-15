@@ -1,11 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const currentPage = window.location.pathname.split('/').pop(); // Gets 'index.html', 'receiver.html', etc.
+    const currentPage = window.location.pathname.split('/').pop();
 
-    // Common elements (agar sab pages pe hain)
-    const mainHeaderTitle = document.getElementById('mainHeaderTitle');
-    const receiverPageTitle = document.getElementById('receiverPageTitle'); // For receiver.html
-
-    // Blessing data
+    // Blessing data (No changes here, already correct)
     const blessingTexts = [
         "जय खेशवर! महादेव आपके जीवन को सुख, शांति और समृद्धि से भर दें। हर हर महादेव!",
         "महादेव आपके सभी दुखों को दूर करें और आपके जीवन को आनंद से भर दें। ओम नमः शिवाय!",
@@ -24,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "assets/blessing1.gif",
         "assets/blessing2.gif",
         "assets/blessing3.gif",
-        "assets/blessing4.gif", // Typos corrected: was 'blaching4.gif'
+        "assets/blessing4.gif",
         "assets/blessing5.gif",
         "assets/blessing6.gif",
         "assets/blessing7.gif",
@@ -39,10 +35,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (openGiftBtn) {
             openGiftBtn.addEventListener('click', () => {
-                const senderName = senderNameInput.value.trim();
-                // Index page se click karne par, receiver.html par random blessing dikhegi.
-                // Agar aap chahte hain ki yahan se bhi koi specific blessing jaye, toh logic change karna padega.
-                window.location.href = 'receiver.html';
+                const nameEntered = senderNameInput.value.trim();
+                const encodedName = encodeURIComponent(nameEntered || 'प्रिय भक्त'); // Default to 'प्रिय भक्त' if no name
+                // When "Open Gift" is clicked on index.html, it sends the name to receiver.html
+                window.location.href = `receiver.html?name=${encodedName}`;
             });
         }
     }
@@ -50,7 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Logic for sender.html (Send Blessing Page) ---
     else if (currentPage === 'sender.html') {
         const senderNameInput = document.getElementById('senderNameInput');
-        const receiverNameInput = document.getElementById('receiverNameInput');
         const generateLinkBtn = document.getElementById('generateLinkBtn');
         const shareLinkSection = document.getElementById('shareLinkSection');
         const generatedLinkInput = document.getElementById('generatedLinkInput');
@@ -61,21 +56,20 @@ document.addEventListener('DOMContentLoaded', () => {
         if (generateLinkBtn) {
             generateLinkBtn.addEventListener('click', () => {
                 const senderName = senderNameInput.value.trim();
-                const receiverName = receiverNameInput.value.trim();
                 const selectedBlessing = document.querySelector('input[name="blessingChoice"]:checked');
 
-                if (senderName && receiverName && selectedBlessing) {
+                if (senderName && selectedBlessing) {
                     const blessingId = selectedBlessing.value;
                     const encodedSenderName = encodeURIComponent(senderName);
-                    const encodedReceiverName = encodeURIComponent(receiverName);
 
-                    // Pura URL generate karein, jismein domain aur path bhi ho
-                    const blessingLink = `${window.location.origin}/receiver.html?sender=${encodedSenderName}&name=${encodedReceiverName}&blessingId=${blessingId}`;
+                    // For sender page, generate a link for general recipient (no specific receiver name)
+                    // The receiver page will then handle displaying 'प्रिय भक्त' if no name is in URL.
+                    const blessingLink = `${window.location.origin}/receiver.html?sender=${encodedSenderName}&blessingId=${blessingId}`;
 
                     generatedLinkInput.value = blessingLink;
                     shareLinkSection.style.display = 'block';
 
-                    // Update share buttons with the full link
+                    // Update share buttons
                     const whatsappText = `आपको ${senderName} की ओर से महादेव का आशीर्वाद मिला है! इसे खोलने के लिए यहां क्लिक करें: ${blessingLink}`;
                     whatsappShareBtn.href = `https://wa.me/?text=${encodeURIComponent(whatsappText)}`;
 
@@ -83,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     facebookShareBtn.href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(blessingLink)}&quote=${encodeURIComponent(facebookText)}`;
 
                 } else {
-                    alert('कृपया अपना और प्राप्तकर्ता का नाम दर्ज करें और एक आशीर्वाद चुनें।');
+                    alert('कृपया अपना नाम दर्ज करें और एक आशीर्वाद चुनें।');
                 }
             });
         }
@@ -105,21 +99,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const personalizedBlessingTitle = document.getElementById('personalizedBlessingTitle');
         const blessingTextOutput = document.getElementById('blessingText');
         const blessingGif = document.getElementById('blessingGif');
+        const receiverPageTitle = document.getElementById('receiverPageTitle'); // Added this
 
         const urlParams = new URLSearchParams(window.location.search);
-        const receiverName = urlParams.get('name') || 'प्रिय भक्त'; // 'प्रिय भक्त' agar naam nahi mila
-        const senderName = urlParams.get('sender') || 'महादेव'; // 'महादेव' agar sender nahi mila
-        let blessingId = urlParams.get('blessingId'); // Blessing ID URL se lein
+        const receiverName = urlParams.get('name') || 'प्रिय भक्त'; // Default to 'प्रिय भक्त'
+        const senderName = urlParams.get('sender') || 'महादेव'; // Default to 'महादेव'
+        let blessingId = urlParams.get('blessingId');
 
-        // Page Title update karein
+        // Update HTML document title
         if (receiverPageTitle) {
             receiverPageTitle.textContent = `${receiverName} के लिए आशीर्वाद | Blessing for ${receiverName}`;
         }
-        if (mainHeaderTitle) {
-            mainHeaderTitle.textContent = `महादेव का आशीर्वाद | Mahadev's Blessing`;
-        }
 
-        let countdown = 10; // 10 seconds ka countdown
+        let countdown = 10; // 10 seconds countdown
 
         function updateCountdown() {
             if (countdown > 0) {
@@ -127,15 +119,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 countdown--;
                 setTimeout(updateCountdown, 1000);
             } else {
-                countdownSection.style.display = 'none'; // Countdown hide karein
-                displayBlessing(receiverName, senderName, blessingId); // Blessing dikhayein
+                countdownSection.style.display = 'none'; // Hide countdown
+                displayBlessing(receiverName, senderName, blessingId); // Show blessing
             }
         }
 
         function displayBlessing(receiver, sender, id) {
-            blessingDisplaySection.style.display = 'block'; // Blessing section show karein
+            blessingDisplaySection.style.display = 'block'; // Show blessing section
 
-            // Blessing ID determine karein: agar URL mein diya hai, nahi toh random
+            // Determine blessing ID: use provided ID or a random one
             const finalBlessingId = (id !== null && id >= 0 && id < blessingTexts.length) ? parseInt(id) : Math.floor(Math.random() * blessingTexts.length);
 
             const finalBlessingText = blessingTexts[finalBlessingId];
@@ -146,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
             blessingGif.src = finalBlessingGifPath;
         }
 
-        // receiver.html load hote hi countdown start karein
+        // Start countdown only if on receiver.html
         updateCountdown();
     }
 });
