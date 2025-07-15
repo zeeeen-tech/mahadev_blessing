@@ -1,142 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>दान करें | Donate - महादेव का आशीर्वाद</title>
+    <title>Donate</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="assets/favicon.png" type="image/png">
-    <style>
-        /* Specific styles for donate.html if needed, otherwise rely on style.css */
-        .donate-content {
-            padding: 40px;
-        }
-        .donate-content h2 {
-            color: #FF5722; /* Orange heading */
-            font-size: 2.5em;
-            margin-bottom: 30px;
-        }
-        .donate-content .upi-button-container {
-            margin-top: 40px;
-            margin-bottom: 50px;
-            text-align: center;
-        }
-        .donate-content .upi-button {
-            background-color: #4CAF50; /* Green for UPI button */
-            animation: blink 1.5s infinite; /* Blinking effect */
-            padding: 20px 40px;
-            font-size: 1.5em;
-            border-radius: 15px;
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
-        }
-        .donate-content .upi-button:hover {
-            background-color: #388E3C;
-            animation: none;
-            transform: translateY(-5px);
-        }
-        .donate-content .emotional-section {
-            background-color: #FFFDE7; /* Light yellow background */
-            border: 2px solid #FFC107; /* Golden border */
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-        }
-        .donate-content .emotional-section p {
-            font-size: 1.3em;
-            line-height: 1.8;
-            color: #555;
-            margin-bottom: 20px;
-        }
-        .donate-content .goals-section {
-            text-align: left;
-            margin-top: 30px;
-        }
-        .donate-content .goals-section h3 {
-            color: #FF5722;
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-        .donate-content .goals-section ul {
-            list-style: none;
-            padding: 0;
-        }
-        .donate-content .goals-section ul li {
-            background-color: #E8F5E9; /* Very light green for list items */
-            border-left: 5px solid #4CAF50;
-            padding: 15px;
-            margin-bottom: 15px;
-            border-radius: 10px;
-            font-size: 1.2em;
-            color: #333;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="shiva-background">
-    <header>
-        <div class="container header-container">
-            <h1 id="mainHeaderTitle">महादेव का आशीर्वाद | Mahadev's Blessing</h1>
-            <a href="donate.html" class="btn donation-top-btn">दान करें | Donate</a>
-        </div>
-    </header>
-
-    <main class="container main-content-wrapper donate-content">
-        <h2>आप भी सेवा के भागीदार बन सकते हैं | You too can be a part of service</h2>
-        <p>
-            आपके दान से मंदिरों की सफाई, गौ सेवा और ज़रूरतमंद बच्चों को मिठाई व कपड़े जैसे पवित्र कार्यों में मदद मिलेगी।
-            <br>
-            Your donation will help in noble causes like temple cleaning, cow service, and providing sweets and clothes to needy children.
-        </p>
-
-        <div class="upi-button-container">
-            <a href="upi://pay?pa=your_upi_id@bank&pn=Helping%20Hands%20for%20Humanity&mc=0000&tid=xxxxxxxxx&tr=xxxxxxxxx&tn=Donation%20for%20Humanity" class="btn upi-button" target="_blank">UPI दान करें | Donate via UPI</a>
-            <p style="font-size: 1.1em; color: #666; margin-top: 15px;">(कृपया अपना UPI ID ऊपर के लिंक में 'your_upi_id@bank' की जगह डालें)</p>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>आप भी बना सकते हैं मंदिरों, गावां और जन्म की सेवा के लिए</h1>
         </div>
 
-        <div class="emotional-section">
-            <p>
-                **ॐ सर्वे भवन्तु सुखिनः। सर्वे सन्तु निरामयाः।**
-                <br>
-                **सर्वे भद्राणि पश्यन्तु। मा कश्चित् दुःखभाग् भवेत्॥**
-                <br>
-                **(अर्थ: सभी सुखी हों, सभी रोगमुक्त हों। सभी का कल्याण हो, कोई भी दुखी न हो।)**
-                <br><br>
-                इस पवित्र मंत्र के साथ, हम 'हेल्पिंग हैंड्स फॉर ह्यूमैनिटी' के माध्यम से मानवता की सेवा के लिए प्रतिबद्ध हैं।
-                आपका हर छोटा कदम, महादेव के आशीर्वाद से, कई जीवनों में बड़ा बदलाव ला सकता है।
-            </p>
+        <div class="content">
+            <div style="text-align: center; margin-bottom: 30px;">
+                <img src="assets/shiva.gif" alt="Shiva" class="gift-image">
+            </div>
+            
+            <a href="upi://pay?pa=donation@bbbank" class="btn blink" style="margin: 0 auto; display: block; font-size: 1.5rem; padding: 20px 40px;">
+                <i class="fas fa-hand-holding-usd"></i> UPI Daan Karein
+            </a>
+            
+            <div class="shlok">
+                "दानेन भूतान्यनुतृप्यन्ति दानेन देवाः प्रीयन्ते।
+                दानं सर्वत्र पूज्यते तस्माद्दानं परं मतम्॥"
+                <p style="margin-top: 10px; font-size: 1rem;">- महाभारत</p>
+            </div>
+            
+            <div style="text-align: center; margin: 30px 0;">
+                <p style="font-size: 1.2rem; margin-top: 15px; font-weight: bold;">Helping Hands for Humanity</p>
+            </div>
+            
+            <h3 style="text-align: center; color: #4CAF50; margin: 30px 0 20px;">हमारे उद्देश्य:</h3>
+            
+            <div class="donation-goals">
+                <div class="goal-card">
+                    <i class="fas fa-temple"></i>
+                    <h4>गाँव में मंदिरों की सफाई</h4>
+                    <p>Gaon me mandiron ki safai</p>
+                </div>
+                <div class="goal-card">
+                    <i class="fas fa-paw"></i>
+                    <h4>गौ सेवा</h4>
+                    <p>Gau seva</p>
+                </div>
+                <div class="goal-card">
+                    <i class="fas fa-child"></i>
+                    <h4>ज़रूरतमंद बच्चों की मदद</h4>
+                    <p>Zarruratmand bachchon ko mithai + kapde</p>
+                </div>
+            </div>
+            
+            <div class="nav-buttons">
+                <button class="btn" onclick="window.location.href='sender.html'">
+                    <i class="fas fa-arrow-left"></i> वापस
+                </button>
+                <button class="btn" onclick="window.location.href='index.html'">
+                    <i class="fas fa-home"></i> घर जाएं
+                </button>
+            </div>
         </div>
-
-        <div class="goals-section">
-            <h3>हमारे लक्ष्य | Our Goals:</h3>
-            <ul>
-                <li>गाँव में मंदिरों की सफाई और रखरखाव | Cleaning and maintenance of temples in villages</li>
-                <li>गौ सेवा और उनके आश्रय का प्रबंधन | Cow service and management of their shelters</li>
-                <li>ज़रूरतमंद बच्चों को मिठाई और कपड़े उपलब्ध कराना | Providing sweets and clothes to needy children</li>
-                <li>शिक्षा और स्वास्थ्य जागरूकता कार्यक्रम | Education and health awareness programs</li>
-            </ul>
-        </div>
-    </main>
-
-    <footer>
-        <div class="donation-message">
-            <h3>मानवता की सेवा ही सबसे बड़ा धर्म है | Service to Humanity is the Greatest Dharma</h3>
-            <p>
-                महादेव के आशीर्वाद और मानवता की सेवा में एक कदम बढ़ाएं। 'हेल्पिंग हैंड्स फॉर ह्यूमैनिटी' के माध्यम से आपका भक्ति दान (Bhakti Daan) सीधे उन लोगों तक पहुंचेगा जिन्हें इसकी सबसे ज़्यादा ज़रूरत है।
-                <br>
-                आपके छोटे से योगदान से कई जीवन में सकारात्मक बदलाव आ सकता है।
-                <br>
-                Extend a helping hand in the spirit of Mahadev's blessings and service to humanity. Through 'Helping Hands for Humanity', your devotional contribution (Bhakti Daan) will directly reach those who need it most. Your small donation can bring a positive change in many lives.
-            </p>
-            <p>
-                अधिक जानकारी या दान के लिए, कृपया हमसे संपर्क करें:
-                <br>
-                For more information or to donate, please contact us:
-                <br>
-                <a href="mailto:info.helpinghandsforhumanity39@gmail.com" class="donation-email">info.helpinghandsforhumanity39@gmail.com</a>
-            </p>
-        </div>
-        <p>&copy; 2025 महादेव आशीर्वाद | Mahadev Blessings. सर्वाधिकार सुरक्षित | All rights reserved.</p>
-    </footer>
+    </div>
 </body>
 </html>
