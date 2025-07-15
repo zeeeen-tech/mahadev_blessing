@@ -1,99 +1,60 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mahadev's Blessing</title>
+    <title id="receiverPageTitle">महादेव आशीर्वाद | Mahadev Blessing</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="assets/favicon.png" type="image/png">
 </head>
-<body>
-    <div class="container">
-        <div class="content" style="text-align: center;">
-            <div id="countdownSection">
-                <h2 style="color: #FF9800;">महादेव की कृपा जल्द हो रही है</h2>
-                <div class="countdown">
-                    <div id="countdown">10</div>
-                </div>
-                <img src="assets/shiva.gif" alt="Shiva Blessing" class="gift-image">
-            </div>
-
-            <div id="blessingSection" style="display: none;">
-                <h2 style="color: #FF9800;">महादेव का आशीर्वाद</h2>
-                <img id="blessingImage" src="" alt="Blessing" class="gift-image">
-                
-                <div class="blessing-message">
-                    <h3>प्रिय <span id="receiverNameDisplay">मित्र</span>,</h3>
-                    <p class="blessing-text" id="hindiBlessing"></p>
-                    <p class="blessing-english" id="englishBlessing"></p>
-                </div>
-                
-                <div class="share-buttons">
-                    <a href="#" class="share-btn whatsapp" title="WhatsApp">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
-                    <a href="#" class="share-btn facebook" title="Facebook">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="#" class="share-btn copy" title="Copy Link">
-                        <i class="fas fa-copy"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <div class="nav-buttons">
-                <button class="btn" onclick="window.location.href='index.html'">
-                    <i class="fas fa-home"></i> वापस घर जाएं
-                </button>
-                <button class="btn btn-secondary" onclick="window.location.href='sender.html'">
-                    <i class="fas fa-gift"></i> अपना गिफ्ट भेजें
-                </button>
-            </div>
+<body class="shiva-background">
+    <header>
+        <div class="container header-container">
+            <h1 id="mainHeaderTitle">महादेव का आशीर्वाद | Mahadev's Blessing</h1>
+            <a href="donate.html" class="btn donation-top-btn">दान करें | Donate</a>
         </div>
-    </div>
+    </header>
 
-    <script>
-        // Get receiver name from URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const receiverName = urlParams.get('name') || 'मित्र';
-        document.getElementById('receiverNameDisplay').textContent = receiverName;
+    <main class="container main-content-wrapper">
+        <section id="countdownSection" class="centered-content">
+            <h2 class="countdown-text">आपका आशीर्वाद तैयार हो रहा है...</h2>
+            <h2 class="countdown-text english-subtext">Your blessing is preparing...</h2>
+            <div id="countdownDisplay">10</div>
+        </section>
 
-        // Blessing messages
-        const blessings = [
-            {
-                hindi: "जय खेशवर! आपकी जीवन की सारी कामनाओं और जय चेतना की धारा बनी रहे!",
-                english: "May Mahadev remove all sorrow and bring you divine peace and eternal joy.",
-                gif: "blessing1.gif"
-            },
-            {
-                hindi: "शिव की जोत आपकी जीवन को नये की तरह चाली कारा दे!",
-                english: "May Shiva's light guide your path to new beginnings and prosperity.",
-                gif: "blessing2.gif"
-            },
-            // Add 6 more blessings...
-        ];
+        <section id="blessingDisplaySection" style="display: none;" class="centered-content">
+            <h2 id="personalizedBlessingTitle">महादेव का आशीर्वाद आपके लिए!</h2>
+            <img id="blessingGif" class="blessing-gif" src="" alt="Mahadev Blessing GIF">
+            <p id="blessingText"></p>
+            <div class="secondary-action">
+                <a href="index.html">एक और आशीर्वाद प्राप्त करें | Get another blessing</a>
+                <br>
+                <a href="sender.html">अपना आशीर्वाद दूसरों को भेजें | Send your blessing to others</a>
+            </div>
+        </section>
+    </main>
 
-        // Countdown function
-        let count = 10;
-        const countdownElement = document.getElementById('countdown');
-        countdownElement.textContent = count;
+    <footer>
+        <div class="donation-message">
+            <h3>मानवता की सेवा ही सबसे बड़ा धर्म है | Service to Humanity is the Greatest Dharma</h3>
+            <p>
+                महादेव के आशीर्वाद और मानवता की सेवा में एक कदम बढ़ाएं। 'हेल्पिंग हैंड्स फॉर ह्यूमैनिटी' के माध्यम से आपका भक्ति दान (Bhakti Daan) सीधे उन लोगों तक पहुंचेगा जिन्हें इसकी सबसे ज़्यादा ज़रूरत है।
+                <br>
+                आपके छोटे से योगदान से कई जीवन में सकारात्मक बदलाव आ सकता है।
+                <br>
+                Extend a helping hand in the spirit of Mahadev's blessings and service to humanity. Through 'Helping Hands for Humanity', your devotional contribution (Bhakti Daan) will directly reach those who need it most. Your small donation can bring a positive change in many lives.
+            </p>
+            <p>
+                अधिक जानकारी या दान के लिए, कृपया हमसे संपर्क करें:
+                <br>
+                For more information or to donate, please contact us:
+                <br>
+                <a href="mailto:info.helpinghandsforhumanity39@gmail.com" class="donation-email">info.helpinghandsforhumanity39@gmail.com</a>
+            </p>
+        </div>
+        <p>&copy; 2025 महादेव आशीर्वाद | Mahadev Blessings. सर्वाधिकार सुरक्षित | All rights reserved.</p>
+    </footer>
 
-        const countdownInterval = setInterval(() => {
-            count--;
-            countdownElement.textContent = count;
-            
-            if (count <= 0) {
-                clearInterval(countdownInterval);
-                document.getElementById('countdownSection').style.display = 'none';
-                
-                // Show random blessing
-                const randomBlessing = blessings[Math.floor(Math.random() * blessings.length)];
-                document.getElementById('hindiBlessing').textContent = randomBlessing.hindi;
-                document.getElementById('englishBlessing').textContent = randomBlessing.english;
-                document.getElementById('blessingImage').src = `assets/${randomBlessing.gif}`;
-                document.getElementById('blessingSection').style.display = 'block';
-            }
-        }, 1000);
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
