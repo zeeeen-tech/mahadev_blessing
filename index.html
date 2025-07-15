@@ -1,61 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="mainPageTitle">महादेव आशीर्वाद | Mahadev Blessing</title>
+    <title>Blessings Beyond Borders</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="assets/favicon.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="shiva-background">
-    <header>
-        <div class="container header-container">
-            <h1 id="mainHeaderTitle">महादेव का आशीर्वाद | Mahadev's Blessing</h1>
-            <a href="donate.html" class="btn donation-top-btn">दान करें | Donate</a>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 id="pageTitle">Blessings Beyond Borders</h1>
+            <p>Send divine blessings to your loved ones with Mahadev's grace</p>
         </div>
-    </header>
 
-    <main class="container main-content-wrapper">
-        <section id="homeSection">
-            <h2 id="homePageGreeting">महादेव आशीर्वाद प्राप्त करें | Get Mahadev's Blessing</h2>
-            <p id="homePageSubtext">अपना नाम दर्ज करें और महादेव का विशेष आशीर्वाद प्राप्त करने के लिए नीचे क्लिक करें।</p>
-            <p class="english-subtext">Enter your name and click below to receive a special blessing from Mahadev.</p>
-            
-            <div class="input-group centered-content">
-                <label for="userNameInput">आपका नाम | Your Name:</label>
-                <input type="text" id="userNameInput" placeholder="अपना नाम लिखें...">
+        <div class="content">
+            <div class="form-group">
+                <input type="text" id="receiverName" placeholder="अपना नाम दाखें">
             </div>
             
-            <button id="getBlessingBtn" class="btn">आशीर्वाद खोलें | Open Blessing</button>
+            <button class="btn" onclick="openGift()">
+                <i class="fas fa-gift"></i> गिफ्ट खोलें
+            </button>
             
-            <div class="secondary-action">
-                <p>या</p>
-                <a href="sender.html">अपना आशीर्वाद दूसरों को भेजें | Send your blessing to others</a>
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="btn btn-secondary" onclick="window.location.href='sender.html'">
+                    <i class="fas fa-share-alt"></i> अपना गिफ्ट भेजें
+                </button>
+                <button class="btn" onclick="window.location.href='donate.html'" style="background: #4CAF50;">
+                    <i class="fas fa-hands-helping"></i> दान करें
+                </button>
             </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="donation-message">
-            <h3>मानवता की सेवा ही सबसे बड़ा धर्म है | Service to Humanity is the Greatest Dharma</h3>
-            <p>
-                महादेव के आशीर्वाद और मानवता की सेवा में एक कदम बढ़ाएं। 'हेल्पिंग हैंड्स फॉर ह्यूमैनिटी' के माध्यम से आपका भक्ति दान (Bhakti Daan) सीधे उन लोगों तक पहुंचेगा जिन्हें इसकी सबसे ज़्यादा ज़रूरत है।
-                <br>
-                आपके छोटे से योगदान से कई जीवन में सकारात्मक बदलाव आ सकता है।
-                <br>
-                Extend a helping hand in the spirit of Mahadev's blessings and service to humanity. Through 'Helping Hands for Humanity', your devotional contribution (Bhakti Daan) will directly reach those who need it most. Your small donation can bring a positive change in many lives.
-            </p>
-            <p>
-                अधिक जानकारी या दान के लिए, कृपया हमसे संपर्क करें:
-                <br>
-                For more information or to donate, please contact us:
-                <br>
-                <a href="mailto:info.helpinghandsforhumanity39@gmail.com" class="donation-email">info.helpinghandsforhumanity39@gmail.com</a>
-            </p>
         </div>
-        <p>&copy; 2025 महादेव आशीर्वाद | Mahadev Blessings. सर्वाधिकार सुरक्षित | All rights reserved.</p>
-    </footer>
+    </div>
 
-    <script src="script.js"></script>
+    <script>
+        // Set title with sender name from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const senderName = urlParams.get('from');
+        if (senderName) {
+            document.getElementById('pageTitle').textContent = 
+                `क्या काशी गिफ्ट भेजा है? - From ${senderName}`;
+        }
+
+        function openGift() {
+            const receiverName = document.getElementById('receiverName').value || 'मित्र';
+            window.location.href = `receiver.html?name=${encodeURIComponent(receiverName)}`;
+        }
+    </script>
 </body>
 </html>
