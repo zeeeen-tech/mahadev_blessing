@@ -6,28 +6,75 @@ body {
     color: #333; /* Default dark text color */
     line-height: 1.6;
     overflow-x: hidden; /* Prevent horizontal scroll */
+    min-height: 100vh; /* Ensure body takes full viewport height */
+    display: flex;
+    flex-direction: column; /* For sticky footer */
 }
 
-/* Updated for better text visibility on dark backgrounds */
+/* Background GIF Styling */
 .shiva-background {
-    background-image: url('assets/shiva.gif'); /* Ya jo bhi aapka background GIF hai */
-    background-size: cover;
+    background-image: url('assets/shiva.gif'); /* Aapki ladki wali GIF */
+    background-size: cover; /* GIF poore screen ko cover kare */
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed; /* Optional: Makes background fixed while scrolling */
-    color: #F8F8F8; /* Light color for text on dark Shiva background */
+    background-attachment: fixed; /* GIF scroll karne par fixed rahe */
+    /* Ab yahan koi overlay nahi hai, text container mein transparency hogi */
 }
 
+/* Common Container for header, main content */
 .container {
     max-width: 900px;
     margin: 20px auto;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.85); /* Slightly transparent white for content boxes */
+    background-color: rgba(255, 255, 255, 0.95); /* Thoda jyada white background for content boxes, for readability */
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Thoda gehra shadow for pop */
     box-sizing: border-box; /* Padding includes border */
+    position: relative; /* For donation button positioning in header */
+    text-align: center; /* Content ko center mein rakhe */
 }
 
+.main-content-wrapper {
+    flex-grow: 1; /* Main content flex item ko available space lene de for sticky footer */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center content if space allows */
+    align-items: center; /* Horizontally center content */
+    padding-top: 50px; /* Header ke neeche space */
+    padding-bottom: 50px; /* Footer ke upar space */
+}
+
+.centered-content {
+    width: 100%;
+    max-width: 600px; /* Content ki max width */
+    margin: auto; /* Center content in the wrapper */
+}
+
+/* Header Specific Styles */
+header {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Thoda dark background for header */
+    padding: 10px 0;
+    color: #FFD700; /* Golden text for header */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.header-container {
+    background-color: transparent; /* Header container ka apna background transparent rakhein */
+    box-shadow: none; /* Header container par koi shadow nahi */
+    padding: 0 20px; /* Padding for header text */
+    margin: 0 auto; /* Header container ko center karein */
+}
+
+#mainHeaderTitle {
+    color: #FFD700; /* Golden color for main header title */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Thoda gehra shadow */
+    margin: 0;
+    padding: 10px 0;
+    font-size: 2.2em; /* Thoda bada font */
+}
+
+/* Button Styling (General) */
 .btn {
     background-color: #FFD700; /* Golden color for buttons */
     color: #333; /* Dark text on golden button */
@@ -35,48 +82,20 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.3s ease;
+    font-size: 1.1em; /* Thoda bada font */
+    font-weight: bold; /* Bold text */
+    transition: background-color 0.3s ease, transform 0.2s ease;
     margin-top: 15px;
     text-decoration: none; /* For button-like links */
     display: inline-block; /* For button-like links */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 .btn:hover {
     background-color: #E6C200; /* Darker golden on hover */
+    transform: scale(1.03); /* Slight zoom on hover */
 }
 
-/* Ensure blessing text is visible */
-#blessingText {
-    font-size: 1.2em;
-    color: #333; /* Dark color for text within light container */
-    background-color: rgba(255, 255, 255, 0.9); /* Thoda white background blessing text ke liye */
-    padding: 15px;
-    border-radius: 8px;
-    margin-top: 10px;
-    line-height: 1.8;
-}
-
-/* Agar container transparent hai aur text abhi bhi nahi dikh raha, toh container ka text color */
-.container p, .container h2, .container h3, .container label {
-    color: #333; /* Dark text for elements inside light container */
-}
-
-/* For the main header title on the darker background */
-header .container {
-    background-color: rgba(0, 0, 0, 0.6); /* Darker background for header */
-    padding: 10px 20px;
-    border-radius: 0 0 10px 10px;
-}
-
-#mainHeaderTitle {
-    color: #FFD700; /* Golden color for main header title */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    margin: 0;
-    padding: 0;
-}
-
-
-/* Blinking Animation for Donation Button */
+/* Top Donation Button */
 @keyframes blink {
     0% { opacity: 1; }
     50% { opacity: 0.5; }
@@ -84,51 +103,200 @@ header .container {
 }
 
 .donation-top-btn {
-    position: absolute; /* Position it absolutely within the header's container */
-    top: 10px; /* Adjust as needed */
+    position: absolute; /* Header container ke andar absolute position */
+    top: 15px; /* Adjust as needed */
     right: 20px; /* Adjust as needed */
     background-color: #FF0000; /* RED color for donate button */
     color: white;
-    padding: 10px 20px; /* Thoda bada padding */
-    font-size: 1.1em; /* Thoda bada font */
+    padding: 10px 20px;
+    font-size: 1.1em;
     border-radius: 8px;
     text-decoration: none;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    z-index: 1000; /* Ensure it stays on top */
-    animation: blink 1.5s infinite; /* Blinking effect */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow */
+    z-index: 1000;
+    animation: blink 1.5s infinite;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Stronger shadow */
     font-weight: bold;
 }
 
 .donation-top-btn:hover {
     background-color: #CC0000; /* Darker red on hover */
-    transform: scale(1.05); /* Slight zoom on hover */
-    animation: none; /* Stop blinking on hover */
+    transform: scale(1.05);
+    animation: none;
 }
 
-/* Common Footer Styling for Donation Message */
-footer {
-    background-color: #333; /* Dark background for footer */
-    color: #FFD700; /* Golden text for footer for contrast */
-    padding: 25px 20px; /* Bada padding */
-    text-align: center;
-    border-top: 5px solid #FFD700; /* Golden border on top */
-    margin-top: 30px; /* Space above footer */
+/* Input Field Styling */
+.input-group {
+    margin-bottom: 20px;
+    text-align: left; /* Label ko left align karein */
 }
 
-.donation-message {
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.1em;
+    color: #555; /* Thoda dark grey for labels */
+    font-weight: bold; /* Labels ko bold karein */
+}
+
+input[type="text"], input[type="email"] {
+    width: calc(100% - 24px); /* Adjust width to fit container with padding */
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1.1em; /* Bada font */
+    box-sizing: border-box;
+    background-color: #f8f8f8; /* Thoda off-white background */
+    color: #333;
+}
+
+input[type="text"]:focus, input[type="email"]:focus {
+    border-color: #FFD700;
+    outline: none;
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+}
+
+/* Radio Button Options */
+.blessing-options {
+    text-align: left; /* Options ko left align karein */
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.blessing-options label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    color: #333;
+    font-weight: normal; /* Labels bold nahi rahenge */
+    cursor: pointer;
+    padding: 5px 0;
+    transition: color 0.2s ease;
+}
+
+.blessing-options label:hover {
+    color: #007bff; /* Hover par thoda blue highlight */
+}
+
+.blessing-options input[type="radio"] {
+    margin-right: 10px;
+    transform: scale(1.1); /* Thoda bada radio button */
+}
+
+/* Share Link Section */
+#shareLinkSection {
+    margin-top: 30px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+#generatedLinkInput {
+    cursor: text;
+}
+
+.share-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Buttons ke beech space */
+    margin-top: 20px;
+}
+
+.whatsapp-btn {
+    background-color: #25D366; /* WhatsApp Green */
+    color: white;
+}
+.whatsapp-btn:hover {
+    background-color: #1DA851;
+}
+
+.facebook-btn {
+    background-color: #1877F2; /* Facebook Blue */
+    color: white;
+}
+.facebook-btn:hover {
+    background-color: #145CB3;
+}
+
+/* Receiver Page Specifics */
+#countdownSection .countdown-text {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #555; /* Readable dark grey */
+    margin-top: 15px;
+}
+
+#countdownDisplay {
+    font-size: 2.5em;
+    color: #FF0000; /* Red for countdown number */
+    font-weight: bold;
+}
+
+#personalizedBlessingTitle {
+    font-size: 1.8em;
+    color: #000; /* Black for strong contrast */
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7); /* Subtle white shadow for pop */
+    font-weight: bold; /* Bold title */
+}
+
+.blessing-gif {
+    max-width: 100%; /* GIF screen se bahar na jaye */
+    height: auto; /* Aspect ratio maintain kare */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     margin-bottom: 20px;
 }
 
+#blessingText {
+    font-size: 1.3em; /* Thoda bada font */
+    color: #000; /* Black for strong readability */
+    background-color: rgba(255, 255, 255, 0.9); /* Thoda white background blessing text ke liye */
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+    line-height: 1.8;
+    font-weight: bold; /* Blessing text ko bold karein */
+    text-shadow: 0 0 3px rgba(255, 255, 255, 0.8); /* Halki shadow for visibility */
+}
+
+/* Secondary Action Links */
+.secondary-action {
+    margin-top: 25px;
+    font-size: 1em;
+    color: #555;
+}
+.secondary-action a {
+    color: #007bff; /* Blue link */
+    text-decoration: none;
+    font-weight: bold;
+}
+.secondary-action a:hover {
+    text-decoration: underline;
+}
+
+/* Common Footer Styling */
+footer {
+    background-color: #333; /* Dark background for footer */
+    color: #FFD700; /* Golden text for footer for contrast */
+    padding: 25px 20px;
+    text-align: center;
+    border-top: 5px solid #FFD700; /* Golden border on top */
+    margin-top: auto; /* Sticky footer ke liye */
+}
+
 .donation-message h3 {
-    font-size: 1.6em; /* Bada heading */
+    font-size: 1.6em;
     color: #FF6347; /* Tomato color for heading */
     margin-bottom: 15px;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    font-weight: bold;
 }
 
 .donation-message p {
-    font-size: 1.15em; /* Bada paragraph text */
+    font-size: 1.15em;
     line-height: 1.8;
     color: #F8F8F8; /* Light text on dark footer */
     max-width: 800px;
@@ -142,61 +310,52 @@ footer {
     font-size: 1.1em;
 }
 
-footer p:last-child { /* Copyright text */
+footer p:last-child {
     font-size: 0.9em;
-    color: #CCCCCC; /* Lighter grey for copyright */
+    color: #CCCCCC;
     margin-top: 20px;
 }
 
-/* Responsive adjustments for header (already had some, refine if needed) */
-@media (max-width: 600px) {
-    header .container {
-        flex-direction: column; /* Stack items vertically on small screens */
-        padding-right: 20px; /* Reset padding for stacking */
-        padding-left: 20px; /* Ensure left padding also */
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .container {
+        margin: 15px auto;
+        padding: 15px;
     }
+
+    #mainHeaderTitle {
+        font-size: 1.8em;
+    }
+
     .donation-top-btn {
         position: static; /* Remove absolute positioning */
         display: block; /* Make it a block element */
-        width: 80%; /* Take up more width */
-        margin: 10px auto; /* Center it */
+        width: 90%; /* Take up more width */
+        margin: 10px auto 0; /* Center it below title */
         font-size: 1em;
         padding: 8px 15px;
+        text-align: center;
     }
+
+    .share-buttons {
+        flex-direction: column; /* Stack share buttons vertically */
+        gap: 10px;
+    }
+    .share-buttons .btn {
+        width: 100%; /* Full width for stacked buttons */
+    }
+
     .donation-message h3 {
         font-size: 1.4em;
     }
     .donation-message p {
         font-size: 1em;
     }
-}
 
-/* Input field styling */
-input[type="text"], input[type="email"] {
-    width: calc(100% - 20px); /* Adjust width to fit container with padding */
-    padding: 12px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1em;
-    box-sizing: border-box; /* Include padding in element's total width and height */
-}
-
-input[type="text"]:focus, input[type="email"]:focus {
-    border-color: #FFD700; /* Golden border on focus */
-    outline: none;
-    box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
-}
-
-/* Radio button styles */
-.blessing-options label {
-    display: block; /* Each option on new line */
-    margin-bottom: 10px;
-    font-size: 1.1em;
-    color: #333; /* Dark text for options */
-}
-
-.blessing-options input[type="radio"] {
-    margin-right: 10px;
-    transform: scale(1.2); /* Make radio buttons slightly larger */
-}
+    #personalizedBlessingTitle {
+        font-size: 1.5em;
+    }
+    #blessingText {
+        font-size: 1.1em;
+    }
+    }
