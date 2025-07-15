@@ -5,32 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="receiverPageTitle">महादेव का आशीर्वाद | Mahadev's Blessing</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="assets/favicon.png" type="image/png">
 </head>
 <body class="shiva-background">
     <header>
-        <div class="container" style="position: relative;">
+        <div class="container header-container">
             <h1 id="mainHeaderTitle">महादेव का आशीर्वाद | Mahadev's Blessing</h1>
             <a href="donate.html" class="btn donation-top-btn">दान करें | Donate</a>
         </div>
     </header>
 
-    <main class="container">
+    <main class="container main-content-wrapper">
         <section id="countdownSection">
-            <h2>महादेव की कृपा जल्द हो रही है...</h2>
-            <h2>Mahadev's grace is coming soon...</h2>
-            <div id="countdownDisplay" class="countdown-display">10</div>
-            <p>बस कुछ ही पल और...</p>
-            <p>Just a few more moments...</p>
+            <h2>आपका आशीर्वाद आ रहा है!</h2>
+            <p>Your blessing is on its way!</p>
+            <p class="countdown-text">बस <span id="countdownDisplay">10</span> सेकंड में...</p>
+            <p class="countdown-text">In just <span id="countdownDisplay">10</span> seconds...</p>
         </section>
 
-        <section id="blessingDisplaySection" style="display:none;">
-            <h2 id="personalizedBlessingTitle"></h2>
-            <div class="blessing-output">
-                <p id="blessingText"></p>
-                <img id="blessingGif" src="" alt="महादेव आशीर्वाद GIF | Mahadev Blessing GIF">
-            </div>
-
-            <button class="btn" onclick="window.location.href='sender.html'">क्या आप भी गिफ्ट भेजना चाहते हैं? | Do you also want to send a gift?</button>
+        <section id="blessingDisplaySection" style="display: none;">
+            <h2 id="personalizedBlessingTitle">महादेव का आशीर्वाद</h2>
+            <img id="blessingGif" src="" alt="Mahadev Blessing" class="blessing-gif">
+            <p id="blessingText"></p>
+            <p class="secondary-action">
+                क्या आप भी किसी को आशीर्वाद भेजना चाहते हैं? <a href="sender.html">यहां क्लिक करें | Click here</a>
+            </p>
         </section>
     </main>
 
@@ -38,7 +37,9 @@
         <div class="donation-message">
             <h3>मानवता की सेवा ही सबसे बड़ा धर्म है | Service to Humanity is the Greatest Dharma</h3>
             <p>
-                महादेव के आशीर्वाद और मानवता की सेवा में एक कदम बढ़ाएं। 'हेल्पिंग हैंड्स फॉर ह्यूमैनिटी' के माध्यम से आपका भक्ति दान (Bhakti Daan) सीधे उन लोगों तक पहुंचेगा जिन्हें इसकी सबसे ज़्यादा ज़रूरत है। आपके छोटे से योगदान से कई जीवन में सकारात्मक बदलाव आ सकता है।
+                महादेव के आशीर्वाद और मानवता की सेवा में एक कदम बढ़ाएं। 'हेल्पिंग हैंड्स फॉर ह्यूमैनिटी' के माध्यम से आपका भक्ति दान (Bhakti Daan) सीधे उन लोगों तक पहुंचेगा जिन्हें इसकी सबसे ज़्यादा ज़रूरत है।
+                <br>
+                आपके छोटे से योगदान से कई जीवन में सकारात्मक बदलाव आ सकता है।
                 <br>
                 Extend a helping hand in the spirit of Mahadev's blessings and service to humanity. Through 'Helping Hands for Humanity', your devotional contribution (Bhakti Daan) will directly reach those who need it most. Your small donation can bring a positive change in many lives.
             </p>
@@ -56,4 +57,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
