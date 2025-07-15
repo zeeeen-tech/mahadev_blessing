@@ -11,9 +11,9 @@ body {
     flex-direction: column;
 }
 
-/* Background Image Styling - Using the new light background image. Assuming 'image.png' is in 'assets' folder */
+/* Background Image Styling - Using the new light background image. Assuming 'shiva.gif' is in 'assets' folder */
 .shiva-background {
-    background-image: url('assets/image.png'); /* Aapki ladki wali GIF/image */
+    background-image: url('assets/shiva.gif'); /* **IMPORTANT: Make sure you have shiva.gif in your assets folder** */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -138,6 +138,12 @@ h2 {
     margin-bottom: 20px; /* Thoda zyada space */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Stronger shadow for pop */
     font-weight: bolder; /* Aur zyada bold */
+}
+.english-subtext {
+    font-size: 1em; /* Smaller font for English translation */
+    color: #666;
+    margin-top: -10px; /* Bring closer to Hindi text */
+    margin-bottom: 20px;
 }
 
 h3 {
@@ -384,6 +390,9 @@ footer p:last-child {
     p {
         font-size: 1.1em;
     }
+    .english-subtext {
+        font-size: 0.9em;
+    }
     .input-group label {
         font-size: 1.2em;
     }
@@ -417,5 +426,5 @@ footer p:last-child {
     #blessingText {
         font-size: 1.3em;
     }
-                                      }
+    }
     
