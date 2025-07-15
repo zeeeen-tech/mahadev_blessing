@@ -1,3 +1,81 @@
+/* General Body Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333; /* Default dark text color */
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Updated for better text visibility on dark backgrounds */
+.shiva-background {
+    background-image: url('assets/shiva.gif'); /* Ya jo bhi aapka background GIF hai */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Optional: Makes background fixed while scrolling */
+    color: #F8F8F8; /* Light color for text on dark Shiva background */
+}
+
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.85); /* Slightly transparent white for content boxes */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box; /* Padding includes border */
+}
+
+.btn {
+    background-color: #FFD700; /* Golden color for buttons */
+    color: #333; /* Dark text on golden button */
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+    text-decoration: none; /* For button-like links */
+    display: inline-block; /* For button-like links */
+}
+.btn:hover {
+    background-color: #E6C200; /* Darker golden on hover */
+}
+
+/* Ensure blessing text is visible */
+#blessingText {
+    font-size: 1.2em;
+    color: #333; /* Dark color for text within light container */
+    background-color: rgba(255, 255, 255, 0.9); /* Thoda white background blessing text ke liye */
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+    line-height: 1.8;
+}
+
+/* Agar container transparent hai aur text abhi bhi nahi dikh raha, toh container ka text color */
+.container p, .container h2, .container h3, .container label {
+    color: #333; /* Dark text for elements inside light container */
+}
+
+/* For the main header title on the darker background */
+header .container {
+    background-color: rgba(0, 0, 0, 0.6); /* Darker background for header */
+    padding: 10px 20px;
+    border-radius: 0 0 10px 10px;
+}
+
+#mainHeaderTitle {
+    color: #FFD700; /* Golden color for main header title */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin: 0;
+    padding: 0;
+}
+
+
 /* Blinking Animation for Donation Button */
 @keyframes blink {
     0% { opacity: 1; }
@@ -6,10 +84,10 @@
 }
 
 .donation-top-btn {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    background-color: #4CAF50; /* Green for Donate */
+    position: absolute; /* Position it absolutely within the header's container */
+    top: 10px; /* Adjust as needed */
+    right: 20px; /* Adjust as needed */
+    background-color: #FF0000; /* RED color for donate button */
     color: white;
     padding: 10px 20px; /* Thoda bada padding */
     font-size: 1.1em; /* Thoda bada font */
@@ -23,7 +101,7 @@
 }
 
 .donation-top-btn:hover {
-    background-color: #45a049;
+    background-color: #CC0000; /* Darker red on hover */
     transform: scale(1.05); /* Slight zoom on hover */
     animation: none; /* Stop blinking on hover */
 }
@@ -72,6 +150,11 @@ footer p:last-child { /* Copyright text */
 
 /* Responsive adjustments for header (already had some, refine if needed) */
 @media (max-width: 600px) {
+    header .container {
+        flex-direction: column; /* Stack items vertically on small screens */
+        padding-right: 20px; /* Reset padding for stacking */
+        padding-left: 20px; /* Ensure left padding also */
+    }
     .donation-top-btn {
         position: static; /* Remove absolute positioning */
         display: block; /* Make it a block element */
@@ -79,11 +162,6 @@ footer p:last-child { /* Copyright text */
         margin: 10px auto; /* Center it */
         font-size: 1em;
         padding: 8px 15px;
-    }
-    header .container {
-        flex-direction: column;
-        padding-right: 20px;
-        padding-left: 20px; /* Ensure left padding also */
     }
     .donation-message h3 {
         font-size: 1.4em;
@@ -93,3 +171,32 @@ footer p:last-child { /* Copyright text */
     }
 }
 
+/* Input field styling */
+input[type="text"], input[type="email"] {
+    width: calc(100% - 20px); /* Adjust width to fit container with padding */
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box; /* Include padding in element's total width and height */
+}
+
+input[type="text"]:focus, input[type="email"]:focus {
+    border-color: #FFD700; /* Golden border on focus */
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
+/* Radio button styles */
+.blessing-options label {
+    display: block; /* Each option on new line */
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    color: #333; /* Dark text for options */
+}
+
+.blessing-options input[type="radio"] {
+    margin-right: 10px;
+    transform: scale(1.2); /* Make radio buttons slightly larger */
+}
