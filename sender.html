@@ -1,80 +1,114 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>आपका उपहार भेजें | Send Your Gift</title>
+    <title>Send Blessing</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="assets/favicon.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="shiva-background">
-    <header>
-        <div class="container header-container">
-            <h1 id="mainHeaderTitle">महादेव का आशीर्वाद | Mahadev's Blessing</h1>
-            <a href="donate.html" class="btn donation-top-btn">दान करें | Donate</a>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>प्रिय को भेजें महादेव का आशीर्वाद</h1>
         </div>
-    </header>
 
-    <main class="container main-content-wrapper">
-        <section id="senderSection">
-            <h2>अपना आशीर्वाद भेजें | Send Your Blessing</h2>
-            <p>कृपया अपना नाम दर्ज करें और एक आशीर्वाद चुनें। हम आपके लिए एक विशेष लिंक बनाएंगे जिसे आप किसी को भी भेज सकते हैं।</p>
-            <p class="english-subtext">Please enter your name and choose a blessing. We will generate a special link for you to send to anyone.</p>
+        <div class="content">
+            <div class="form-group">
+                <label for="senderName">आपका नाम:</label>
+                <input type="text" id="senderName" placeholder="अपना नाम दाखें">
+            </div>
             
-            <div class="input-group">
-                <label for="senderNameInput">आपका नाम | Your Name:</label>
-                <input type="text" id="senderNameInput" placeholder="अपना नाम लिखें...">
-            </div>
-
-            <h3>एक आशीर्वाद चुनें | Choose a Blessing:</h3>
-            <div class="blessing-options">
-                <label><input type="radio" name="blessingChoice" value="0" checked> जय खेशवर! महादेव आपके जीवन को सुख, शांति और समृद्धि से भर दें। हर हर महादेव!</label>
-                <label><input type="radio" name="blessingChoice" value="1"> महादेव आपके सभी दुखों को दूर करें और आपके जीवन को आनंद से भर दें। ओम नमः शिवाय!</label>
-                <label><input type="radio" name="blessingChoice" value="2"> शिव की जोत आपकी जीवन को नये प्रकाश की तरह चमका दे और अंधकार को दूर करे। जय भोलेनाथ!</label>
-                <label><input type="radio" name="blessingChoice" value="3"> भोलेनाथ का आशीर्वाद आपके हर कार्य में सफलता दिलाए और आपको अपार शक्ति प्रदान करे। हर हर महादेव!</label>
-                <label><input type="radio" name="blessingChoice" value="4"> देवाधिदेव महादेव की कृपा से आपका घर सुख-समृद्धि से भरा रहे और सभी संकट दूर हों। ओम नमः शिवाय!</label>
-                <label><input type="radio" name="blessingChoice" value="5"> ओम नमः शिवाय! महादेव की असीम कृपा आप पर बनी रहे और आपकी सभी मनोकामनाएं पूर्ण हों।</label>
-                <label><input type="radio" name="blessingChoice" value="6"> आपकी सभी मनोकामनाएं पूर्ण हों, महादेव का आशीर्वाद सदा आपके साथ है। हर हर महादेव!</label>
-                <label><input type="radio" name="blessingChoice" value="7"> महाकाल का आशीर्वाद आपको शक्ति और धैर्य प्रदान करे, और आपको हर चुनौती का सामना करने में मदद करे। जय महाकाल!</label>
-                <label><input type="radio" name="blessingChoice" value="8"> महादेव के आशीर्वाद से आपका जीवन खुशियों और सकारात्मकता से भरा रहे। जय शिव शंकर!</label>
-                <label><input type="radio" name="blessingChoice" value="9"> भगवान शिव का आशीर्वाद आपको आध्यात्मिक शांति और आंतरिक शक्ति प्रदान करे। ओम नमः शिवाय!</label>
-            </div>
-
-            <button id="generateLinkBtn" class="btn">आपका उपहार भेजें | Send Your Gift</button>
-
-            <div id="shareLinkSection" style="display: none;">
-                <h3>आपका आशीर्वाद लिंक | Your Blessing Link:</h3>
-                <input type="text" id="generatedLinkInput" readonly>
-                <button id="copyLinkBtn" class="btn">कॉपी करें | Copy</button>
-                <div class="share-buttons">
-                    <a id="whatsappShareBtn" href="#" target="_blank" class="btn whatsapp-btn">WhatsApp पर शेयर करें</a>
-                    <a id="facebookShareBtn" href="#" target="_blank" class="btn facebook-btn">Facebook पर शेयर करें</a>
+            <div class="form-group">
+                <label>आशीर्वाद चुनें:</label>
+                <div class="blessing-selector">
+                    <!-- Generate 8 blessing options -->
+                    <script>
+                        for (let i = 1; i <= 8; i++) {
+                            document.write(`
+                                <div class="blessing-option ${i === 1 ? 'selected' : ''}" data-id="${i}">
+                                    <img src="assets/blessing${i}.gif" alt="Blessing ${i}">
+                                    <p>आशीर्वाद ${i}</p>
+                                </div>
+                            `);
+                        }
+                    </script>
                 </div>
             </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="donation-message">
-            <h3>मानवता की सेवा ही सबसे बड़ा धर्म है | Service to Humanity is the Greatest Dharma</h3>
-            <p>
-                महादेव के आशीर्वाद और मानवता की सेवा में एक कदम बढ़ाएं। 'हेल्पिंग हैंड्स फॉर ह्यूमैनिटी' के माध्यम से आपका भक्ति दान (Bhakti Daan) सीधे उन लोगों तक पहुंचेगा जिन्हें इसकी सबसे ज़्यादा ज़रूरत है।
-                <br>
-                आपके छोटे से योगदान से कई जीवन में सकारात्मक बदलाव आ सकता है।
-                <br>
-                Extend a helping hand in the spirit of Mahadev's blessings and service to humanity. Through 'Helping Hands for Humanity', your devotional contribution (Bhakti Daan) will directly reach those who need it most. Your small donation can bring a positive change in many lives.
-            </p>
-            <p>
-                अधिक जानकारी या दान के लिए, कृपया हमसे संपर्क करें:
-                <br>
-                For more information or to donate, please contact us:
-                <br>
-                <a href="mailto:info.helpinghandsforhumanity39@gmail.com" class="donation-email">info.helpinghandsforhumanity39@gmail.com</a>
-            </p>
+            
+            <button class="btn" onclick="createGiftLink()">
+                <i class="fas fa-paper-plane"></i> गिफ्ट भेजें & लिंक बनाएं
+            </button>
+            
+            <div id="giftPreview" class="blessing-preview" style="display: none;">
+                <h3>आपका आशीर्वाद पूर्वावलोकन:</h3>
+                <img id="previewImage" src="" alt="Blessing Preview" class="gift-image">
+                <p>From: <span id="previewSender">Sender</span></p>
+                
+                <div class="share-buttons">
+                    <a id="whatsappShare" href="#" class="share-btn whatsapp" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a id="facebookShare" href="#" class="share-btn facebook" title="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a id="copyLink" href="#" class="share-btn copy" title="Copy Link">
+                        <i class="fas fa-copy"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="nav-buttons">
+                <button class="btn" onclick="window.location.href='index.html'">
+                    <i class="fas fa-arrow-left"></i> वापस
+                </button>
+                <button class="btn btn-secondary" onclick="window.location.href='donate.html'">
+                    <i class="fas fa-hands-helping"></i> दान करें
+                </button>
+            </div>
         </div>
-        <p>&copy; 2025 महादेव आशीर्वाद | Mahadev Blessings. सर्वाधिकार सुरक्षित | All rights reserved.</p>
-    </footer>
+    </div>
 
-    <script src="script.js"></script>
+    <script>
+        // Blessing selection
+        document.querySelectorAll('.blessing-option').forEach(option => {
+            option.addEventListener('click', function() {
+                document.querySelectorAll('.blessing-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                this.classList.add('selected');
+            });
+        });
+        
+        // Create gift link
+        function createGiftLink() {
+            const senderName = document.getElementById('senderName').value || 'एक मित्र';
+            const selectedBlessing = document.querySelector('.blessing-option.selected').dataset.id;
+            
+            // Set preview
+            document.getElementById('previewSender').textContent = senderName;
+            document.getElementById('previewImage').src = `assets/blessing${selectedBlessing}.gif`;
+            document.getElementById('giftPreview').style.display = 'block';
+            
+            // Create shareable link
+            const giftLink = `${window.location.origin}/index.html?from=${encodeURIComponent(senderName)}`;
+            
+            // Set share buttons
+            document.getElementById('whatsappShare').href = 
+                `https://wa.me/?text=${encodeURIComponent(`महादेव का आशीर्वाद प्राप्त करें: ${giftLink}`)}`;
+                
+            document.getElementById('facebookShare').href = 
+                `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(giftLink)}`;
+                
+            document.getElementById('copyLink').addEventListener('click', function(e) {
+                e.preventDefault();
+                navigator.clipboard.writeText(giftLink);
+                alert('लिंक कॉपी हो गया!');
+            });
+            
+            // Scroll to preview
+            document.getElementById('giftPreview').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
