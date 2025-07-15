@@ -3,58 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mahadev Ka Aashirwad</title>
+    <title id="mainPageTitle">महादेव आशीर्वाद | Mahadev Blessing</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/favicon.png" type="image/png">
 </head>
-<body>
+<body class="shiva-background">
+    <header>
+        <div class="container header-container">
+            <h1 id="mainHeaderTitle">महादेव का आशीर्वाद | Mahadev's Blessing</h1>
+            <a href="donate.html" class="btn donation-top-btn">दान करें | Donate</a>
+        </div>
+    </header>
 
-    <div class="background-overlay"></div>
+    <main class="container main-content-wrapper">
+        <section id="homeSection">
+            <h2 id="homePageGreeting">महादेव आशीर्वाद प्राप्त करें | Get Mahadev's Blessing</h2>
+            <p id="homePageSubtext">अपना नाम दर्ज करें और महादेव का विशेष आशीर्वाद प्राप्त करने के लिए नीचे क्लिक करें।</p>
+            <p class="english-subtext">Enter your name and click below to receive a special blessing from Mahadev.</p>
+            
+            <div class="input-group centered-content">
+                <label for="userNameInput">आपका नाम | Your Name:</label>
+                <input type="text" id="userNameInput" placeholder="अपना नाम लिखें...">
+            </div>
+            
+            <button id="getBlessingBtn" class="btn">आशीर्वाद खोलें | Open Blessing</button>
+            
+            <div class="secondary-action">
+                <p>या</p>
+                <a href="sender.html">अपना आशीर्वाद दूसरों को भेजें | Send your blessing to others</a>
+            </div>
+        </section>
+    </main>
 
-    <div class="container">
-        <header>
-            <h1>ॐ नमः शिवाय</h1>
-            <h2>महादेव का आशीर्वाद</h2>
-        </header>
+    <footer>
+        <div class="donation-message">
+            <h3>मानवता की सेवा ही सबसे बड़ा धर्म है | Service to Humanity is the Greatest Dharma</h3>
+            <p>
+                महादेव के आशीर्वाद और मानवता की सेवा में एक कदम बढ़ाएं। 'हेल्पिंग हैंड्स फॉर ह्यूमैनिटी' के माध्यम से आपका भक्ति दान (Bhakti Daan) सीधे उन लोगों तक पहुंचेगा जिन्हें इसकी सबसे ज़्यादा ज़रूरत है।
+                <br>
+                आपके छोटे से योगदान से कई जीवन में सकारात्मक बदलाव आ सकता है।
+                <br>
+                Extend a helping hand in the spirit of Mahadev's blessings and service to humanity. Through 'Helping Hands for Humanity', your devotional contribution (Bhakti Daan) will directly reach those who need it most. Your small donation can bring a positive change in many lives.
+            </p>
+            <p>
+                अधिक जानकारी या दान के लिए, कृपया हमसे संपर्क करें:
+                <br>
+                For more information or to donate, please contact us:
+                <br>
+                <a href="mailto:info.helpinghandsforhumanity39@gmail.com" class="donation-email">info.helpinghandsforhumanity39@gmail.com</a>
+            </p>
+        </div>
+        <p>&copy; 2025 महादेव आशीर्वाद | Mahadev Blessings. सर्वाधिकार सुरक्षित | All rights reserved.</p>
+    </footer>
 
-        <main>
-            <section class="blessing-display">
-                <p id="greetingMessage">जय भोलेनाथ!</p>
-                <div id="mahadevImageContainer">
-                    <img id="mahadevImage" src="mahadev_placeholder.jpg" alt="Lord Mahadev" class="hidden">
-                </div>
-                <p id="blessingText" class="hidden">Click 'Blessings Prapt Karein' for your divine message.</p>
-            </section>
-
-            <section class="button-section">
-                <div class="button-container">
-                    <button id="getBlessingBtn" class="action-button">
-                        <span class="icon">🙏</span>
-                        Blessings Prapt Karein
-                    </button>
-
-                    <button id="donateBtn" class="action-button">
-                        <span class="icon">💲</span>
-                        महादेव को अर्पण करें
-                    </button>
-
-                    <button id="shareBlessingBtn" class="action-button">
-                        <span class="icon">✉️</span>
-                        आशीर्वाद Share Karein
-                    </button>
-                </div>
-            </section>
-
-            <section class="info-section">
-                <p>महादेव की कृपा आप पर सदा बनी रहे।</p>
-            </section>
-        </main>
-
-        <footer>
-            <p>&copy; 2025 महादेव की कृपा। सभी अधिकार सुरक्षित।</p>
-        </footer>
-    </div>
-
-    <script src="script.js" defer></script>
+    <script src="script.js"></script>
 </body>
 </html>
